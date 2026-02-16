@@ -41,6 +41,11 @@
     --color-waiting: #0891b2; /* cyan-600 - for pending buy requests */
     --color-bg-waiting: rgba(8, 145, 178, 0.1);
 
+    /* Scrollbar Contrast */
+    --color-scrollbar-track: #0f172a; /* Slate 900 */
+    --color-scrollbar-thumb: #64748b; /* Slate 500 */
+    --color-scrollbar-thumb-hover: #94a3b8; /* Slate 400 */
+
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -78,6 +83,11 @@
     --color-bg-listing-mine: #fff7ed; /* Orange 50 */
     --color-border-listing-mine: #f97316; /* Orange 500 */
 
+    /* Scrollbar Contrast */
+    --color-scrollbar-track: #f1f5f9; /* Slate 100 */
+    --color-scrollbar-thumb: #cbd5e1; /* Slate 300 */
+    --color-scrollbar-thumb-hover: #94a3b8; /* Slate 400 */
+
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -114,6 +124,11 @@
 
     --color-bg-listing-mine: #000000;
     --color-border-listing-mine: #ffaa00;
+
+    /* Scrollbar Contrast */
+    --color-scrollbar-track: #000000;
+    --color-scrollbar-thumb: #ffffff;
+    --color-scrollbar-thumb-hover: #ffff00;
 
     --shadow-sm: 0 1px 3px 0 rgba(255, 255, 255, 0.3);
     --shadow-md: 0 4px 8px 0 rgba(255, 255, 255, 0.3);
@@ -156,28 +171,28 @@ body {
 
 /* WebKit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--color-bg-secondary);
-    border-radius: 5px;
+    background: var(--color-scrollbar-track);
+    border-radius: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-border);
-    border-radius: 5px;
-    border: 2px solid var(--color-bg-secondary);
+    background: var(--color-scrollbar-thumb);
+    border-radius: 6px;
+    border: 3px solid var(--color-scrollbar-track);
     transition: background-color 0.2s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-chemical-n); /* Purple accent on hover */
+    background: var(--color-scrollbar-thumb-hover);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: var(--color-brand-primary); /* Green when dragging */
+    background: var(--color-brand-primary);
 }
 
 ::-webkit-scrollbar-corner {
@@ -186,8 +201,8 @@ body {
 
 /* Firefox scrollbar */
 html {
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-border) var(--color-bg-secondary);
+    scrollbar-width: auto;
+    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 }
 
 /* Smaller scrollbars for overflow containers (tables, modals) */
@@ -196,20 +211,27 @@ html {
 .overflow-auto,
 [style*="overflow"] {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-border) var(--color-bg-tertiary);
+    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 }
 
 .overflow-x-auto::-webkit-scrollbar,
 .overflow-y-auto::-webkit-scrollbar,
 .overflow-auto::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
 }
 
 .overflow-x-auto::-webkit-scrollbar-track,
 .overflow-y-auto::-webkit-scrollbar-track,
 .overflow-auto::-webkit-scrollbar-track {
-    background: var(--color-bg-tertiary);
+    background: var(--color-scrollbar-track);
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb,
+.overflow-y-auto::-webkit-scrollbar-thumb,
+.overflow-auto::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar-thumb);
+    border: 2px solid var(--color-scrollbar-track);
 }
 
 /* ==========================================================================

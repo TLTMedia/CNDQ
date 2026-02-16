@@ -612,7 +612,8 @@ class ReportViewer extends LitElement {
         };
 
         return html`
-             <div class="action-bar">
+             <div class="action-bar flex justify-between items-center">
+                <div class="font-bold text-lg">${ar.title || 'Answer Report'}</div>
                 <button class="btn btn-secondary" @click=${downloadAnswer}>Download CSV</button>
             </div>
 
@@ -628,15 +629,15 @@ class ReportViewer extends LitElement {
                 </div>
 
                 <div class="card">
-                    <div class="card-header font-bold">Adjustable Cells (Variables)</div>
+                    <div class="card-header font-bold">Optimal Production Mix</div>
                     <table class="report-table m-0" style="border:none;">
-                        <thead><tr><th>Name</th><th class="num">Final Value</th><th class="num">Obj Coef</th></tr></thead>
+                        <thead><tr><th>Name</th><th class="num">Gallons Produced</th><th class="num">Unit Profit</th></tr></thead>
                         <tbody>
                             ${ar.variables.map(v => html`
                                 <tr>
                                     <td>${v.name}</td>
                                     <td class="num font-bold">${v.finalValue}</td>
-                                    <td class="num">${v.objectiveCoef}</td>
+                                    <td class="num">$${v.objectiveCoef.toFixed(2)}</td>
                                 </tr>
                             `)}
                         </tbody>
@@ -644,9 +645,9 @@ class ReportViewer extends LitElement {
                 </div>
 
                 <div class="card">
-                    <div class="card-header font-bold">Constraints</div>
+                    <div class="card-header font-bold">Constraints (Chemical Availability)</div>
                     <table class="report-table m-0" style="border:none;">
-                        <thead><tr><th>Name</th><th>Status</th><th class="num">Slack</th><th class="num">Used</th><th class="num">Available</th></tr></thead>
+                        <thead><tr><th>Name</th><th>Status</th><th class="num">Slack (Leftover)</th><th class="num">Used</th><th class="num">Available</th></tr></thead>
                         <tbody>
                             ${ar.constraints.map(c => html`
                                 <tr>

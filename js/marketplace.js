@@ -82,6 +82,7 @@ class MarketplaceApp {
             this.currentUser = profile.email;
             this.updateUIProfile();
             this.updateStalenessIndicator(staleness.level, staleness.count);
+            this.refreshRankBadge();
         });
 
         stateManager.addEventListener('shadowPricesUpdated', (e) => {
@@ -461,6 +462,33 @@ class MarketplaceApp {
 
 
     /**
+     * Update the rank badge in the Net Profit card.
+     * Throttled to at most once every 30 seconds to avoid hammering the API.
+     */
+    async refreshRankBadge() {
+        const now = Date.now();
+        if (this._lastRankFetch && now - this._lastRankFetch < 30000) return;
+        this._lastRankFetch = now;
+
+        try {
+            const data = await api.leaderboard.getStandings();
+            if (!data.success || !data.standings) return;
+            const standings = data.standings;
+            const idx = standings.findIndex(t => t.email === this.currentUser || t.teamId === this.currentUser);
+            const rankEl = document.getElementById('fin-rank');
+            if (!rankEl) return;
+            if (idx >= 0) {
+                const rank = idx + 1;
+                const total = standings.length;
+                const medal = rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : `#${rank}`;
+                rankEl.textContent = `${medal} of ${total} teams`;
+            } else {
+                rankEl.textContent = '';
+            }
+        } catch (e) { /* non-fatal — rank is display-only */ }
+    }
+
+    /**
      * Render Financial Summary Panel (delegated to FinancialRenderer module)
      */
     renderFinancialSummary() {
@@ -468,7 +496,8 @@ class MarketplaceApp {
             transactions: this.transactions,
             profile: this.profile,
             shadowPrices: this.shadowPrices,
-            optimalMix: this.optimalMix
+            optimalMix: this.optimalMix,
+            staleness: this.lastStalenessLevel
         });
     }
 
@@ -804,26 +833,8 @@ class MarketplaceApp {
         document.getElementById('offer-chemical').value = `Chemical ${chemical}`;
         document.getElementById('offer-shadow-hint').textContent = this.formatCurrency(this.shadowPrices[chemical]);
         
-        // Populate with existing values if revising
-        const existingAd = existingAds.find(ad => ad.teamId === this.currentUser);
-        if (existingAd) {
-            document.getElementById('offer-quantity').value = existingAd.quantity;
-            document.getElementById('offer-quantity-slider').value = existingAd.quantity;
-            document.getElementById('offer-price').value = parseFloat(existingAd.maxPrice).toFixed(2);
-            document.getElementById('offer-submit-btn').textContent = 'Update Buy Request';
-        } else {
-            document.getElementById('offer-quantity').value = 100;
-            document.getElementById('offer-quantity-slider').value = 100;
-            document.getElementById('offer-price').value = '5.00';
-            document.getElementById('offer-submit-btn').textContent = 'Post Buy Request';
-        }
-
         // Store current chemical for later
         this.currentOfferChemical = chemical;
-
-        // Update funds and total
-        document.getElementById('offer-current-funds').textContent = this.formatCurrency(this.profile.currentFunds);
-        this.updateBuyRequestTotal();
 
         modal?.classList.remove('hidden');
     }
@@ -861,13 +872,8 @@ class MarketplaceApp {
         // Funds display in modal now shows projected profit improvement
         document.getElementById('offer-current-funds').textContent = this.formatCurrency(this.profile.currentFunds);
 
-        const submitBtn = document.getElementById('offer-submit-btn');
         const warning = document.getElementById('insufficient-funds-warning');
-
-        // NEW MODEL: Infinite Capital. 
-        // We never disable the button or show "insufficient funds".
         warning?.classList.add('hidden');
-        submitBtn.disabled = false;
     }
 
     /**
@@ -1513,7 +1519,12 @@ class MarketplaceApp {
             // Buyer can always accept an offer regardless of funds.
         }
 
-        const confirmed = await this.showConfirm('Accept this offer and execute the trade?', 'Accept Offer');
+        const otherTeam = (negotiation.initiatorId === this.currentUser)
+            ? negotiation.responderName : negotiation.initiatorName;
+        const action = isSelling ? 'SELL' : 'BUY';
+        const confirmMsg = `${action} ${quantity} gal of Chemical ${chemical} @ ${this.formatCurrency(price)}/gal\n` +
+            `Total: ${this.formatCurrency(total)} with ${otherTeam}\n\nThis trade cannot be undone.`;
+        const confirmed = await this.showConfirm(confirmMsg, `Confirm Trade — Chemical ${chemical}`);
         if (!confirmed) return;
 
         try {
@@ -1830,7 +1841,9 @@ class MarketplaceApp {
         document.addEventListener('post-interest', (e) => {
             const { chemical, type } = e.detail;
             if (type === 'buy') {
-                this.openBuyRequestModal(chemical);
+                // Post buy interest directly — no price/quantity needed at this stage.
+                // Price and quantity are negotiated when a seller responds.
+                this.postListing(chemical, 'buy');
             } else {
                 // Sell is disabled in simplified version
                 notifications.showToast('Selling is disabled. Only buy requests are supported.', 'info');
@@ -1842,7 +1855,7 @@ class MarketplaceApp {
             this.closeOfferModal();
         });
 
-        document.getElementById('offer-submit-btn').addEventListener('click', () => {
+        document.getElementById('offer-submit-btn')?.addEventListener('click', () => {
             this.submitBuyRequest();
         });
 
@@ -1861,28 +1874,28 @@ class MarketplaceApp {
             this.updateBuyRequestTotal();
         });
 
-        // +/- buttons
-        document.getElementById('quantity-plus').addEventListener('click', () => {
+        // +/- buttons (optional — removed from simplified modal)
+        document.getElementById('quantity-plus')?.addEventListener('click', () => {
             const input = document.getElementById('offer-quantity');
             input.value = parseInt(input.value) + 10;
             document.getElementById('offer-quantity-slider').value = input.value;
             this.updateBuyRequestTotal();
         });
 
-        document.getElementById('quantity-minus').addEventListener('click', () => {
+        document.getElementById('quantity-minus')?.addEventListener('click', () => {
             const input = document.getElementById('offer-quantity');
             input.value = Math.max(1, parseInt(input.value) - 10);
             document.getElementById('offer-quantity-slider').value = input.value;
             this.updateBuyRequestTotal();
         });
 
-        document.getElementById('price-plus').addEventListener('click', () => {
+        document.getElementById('price-plus')?.addEventListener('click', () => {
             const input = document.getElementById('offer-price');
             input.value = (parseFloat(input.value) + 0.5).toFixed(2);
             this.updateBuyRequestTotal();
         });
 
-        document.getElementById('price-minus').addEventListener('click', () => {
+        document.getElementById('price-minus')?.addEventListener('click', () => {
             const input = document.getElementById('offer-price');
             input.value = Math.max(0, parseFloat(input.value) - 0.5).toFixed(2);
             this.updateBuyRequestTotal();
@@ -2198,6 +2211,7 @@ class MarketplaceApp {
 
         if (audioToggle) {
             audioToggle.checked = !sounds.muted;
+            if (audioStatus) audioStatus.textContent = sounds.muted ? 'Muted' : 'Enabled';
             audioToggle.addEventListener('change', (e) => {
                 sounds.setMuted(!e.target.checked);
                 if (audioStatus) audioStatus.textContent = e.target.checked ? 'Enabled' : 'Muted';
@@ -2982,17 +2996,26 @@ class MarketplaceApp {
     /**
      * Export Leaderboard/Rankings to CSV
      */
-    exportLeaderboardCSV() {
-        const headers = ['Rank', 'Team Name', 'Initial Profit', 'Current Profit', '% Increase', 'ROI'];
-        const data = (this.leaderboard || []).map((team, idx) => [
-            idx + 1,
-            team.teamName || team.teamEmail,
-            team.initialProfit?.toFixed(2) || '0.00',
-            team.currentProfit?.toFixed(2) || '0.00',
-            ((team.percentIncrease || 0) * 100).toFixed(1) + '%',
-            team.roi?.toFixed(2) || '0.00'
-        ]);
-        this.downloadCSV(data, 'leaderboard.csv', headers);
+    async exportLeaderboardCSV() {
+        try {
+            const response = await api.leaderboard.getStandings();
+            if (!response.success || !response.standings || response.standings.length === 0) {
+                notifications.showToast('No leaderboard data to export', 'error');
+                return;
+            }
+            const headers = ['Rank', 'Team Name', 'Starting Funds', 'Current Funds', '% Change', 'Total Trades'];
+            const data = response.standings.map((team, idx) => [
+                idx + 1,
+                team.teamName,
+                (team.startingFunds ?? 0).toFixed(2),
+                (team.currentFunds ?? 0).toFixed(2),
+                ((team.percentChange ?? 0) * 100).toFixed(1) + '%',
+                team.totalTrades ?? 0
+            ]);
+            this.downloadCSV(data, 'leaderboard.csv', headers);
+        } catch (e) {
+            notifications.showToast('Failed to export leaderboard', 'error');
+        }
     }
 
     /**

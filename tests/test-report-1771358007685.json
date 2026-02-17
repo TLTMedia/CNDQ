@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-02-17T19:53:27.696Z",
+  "controller": {
+    "version": "1.0.0",
+    "configPath": "/Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/test-config.json",
+    "testsRequested": [
+      "playwright"
+    ]
+  },
+  "config": {
+    "baseUrl": "http://cndq.test/CNDQ/",
+    "npcCount": 6,
+    "rpcCount": 6,
+    "tradingDuration": 300,
+    "headless": true
+  },
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "totalDurationMs": 5,
+    "passRate": 0
+  },
+  "tests": [
+    {
+      "test": "playwright",
+      "name": "Playwright Dual Test",
+      "success": false,
+      "error": "Cannot find module 'playwright'\nRequire stack:\n- /Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/playwright/api-test.js\n- /Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/playwright/dual-test.js\n- /Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/run.js",
+      "errorStack": "Error: Cannot find module 'playwright'\nRequire stack:\n- /Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/playwright/api-test.js\n- /Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/playwright/dual-test.js\n- /Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/run.js\n    at Function._resolveFilename (node:internal/modules/cjs/loader:1410:15)\n    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)\n    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)\n    at Function._load (node:internal/modules/cjs/loader:1215:37)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:234:24)\n    at Module.require (node:internal/modules/cjs/loader:1496:12)\n    at require (node:internal/modules/helpers:135:16)\n    at Object.<anonymous> (/Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/playwright/api-test.js:9:21)\n    at Module._compile (node:internal/modules/cjs/loader:1740:14)",
+      "startTime": "2026-02-17T19:53:27.691Z",
+      "endTime": "2026-02-17T19:53:27.696Z",
+      "durationMs": 5,
+      "details": {}
+    }
+  ]
+}

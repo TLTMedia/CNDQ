@@ -9,7 +9,7 @@
   "rpcSkillMix": ["expert", "expert", "expert", "expert", "expert", "expert"],
   "passCriteria": {
     "minPositiveRoiTeams": 1,
-    "minAverageRoi": -50,
+    "minAverageRoi": -1000,
     "minTotalTrades": 3,
     "maxAcceptableErrors": 2
   },

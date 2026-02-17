@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-02-17T20:54:30.774Z",
+  "controller": {
+    "version": "1.0.0",
+    "configPath": "/Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/test-config.json",
+    "testsRequested": [
+      "playwright"
+    ]
+  },
+  "config": {
+    "baseUrl": "http://cndq.test/CNDQ/",
+    "npcCount": 6,
+    "rpcCount": 6,
+    "tradingDuration": 300,
+    "headless": true
+  },
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "totalDurationMs": 65078,
+    "passRate": 100
+  },
+  "tests": [
+    {
+      "test": "playwright",
+      "name": "Playwright Dual Test",
+      "success": true,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-17T20:53:25.696Z",
+      "endTime": "2026-02-17T20:54:30.773Z",
+      "durationMs": 65078,
+      "details": {
+        "success": true
+      }
+    }
+  ]
+}

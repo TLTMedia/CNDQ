@@ -41,7 +41,7 @@ export class FinancialRenderer {
      * @param {Object} params.shadowPrices - Shadow prices with maxProfit
      * @param {Object} params.optimalMix - Optimal production mix (deicer, solvent)
      */
-    renderFinancialSummary({ transactions, profile, shadowPrices, optimalMix }) {
+    renderFinancialSummary({ transactions, profile, shadowPrices, optimalMix, staleness }) {
         if (!transactions || !profile) return;
 
         // If shadow prices haven't loaded yet, wait for them
@@ -130,7 +130,9 @@ export class FinancialRenderer {
         };
 
         if (els.inventory) {
-            els.inventory.textContent = this.formatCurrency(inventoryValue);
+            const isStale = staleness && staleness !== 'fresh';
+            els.inventory.textContent = this.formatCurrency(inventoryValue) + (isStale ? ' *' : '');
+            els.inventory.title = isStale ? 'Shadow prices are stale — click "Recalculate" to update this value' : '';
         }
 
         // Show projected production mix (Deicer + Solvent)
@@ -161,7 +163,9 @@ export class FinancialRenderer {
         }
 
         if (els.totalValue) {
-            els.totalValue.textContent = this.formatCurrency(totalValue);
+            const isStale = staleness && staleness !== 'fresh';
+            els.totalValue.textContent = this.formatCurrency(totalValue) + (isStale ? ' *' : '');
+            els.totalValue.title = isStale ? 'Shadow prices are stale — click "Recalculate" to update this value' : '';
             els.totalValue.className = `text-2xl font-mono font-bold z-10 ${totalValue >= 0 ? 'text-green-400' : 'text-red-400'}`;
         }
 

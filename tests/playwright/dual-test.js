@@ -72,3 +72,5 @@ class DualPlayabilityTest {
 if (require.main === module) {
     new DualPlayabilityTest().run();
 }
+
+module.exports = DualPlayabilityTest;

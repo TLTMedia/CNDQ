@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-02-17T20:01:31.665Z",
+  "controller": {
+    "version": "1.0.0",
+    "configPath": "/Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/test-config.json",
+    "testsRequested": [
+      "playwright"
+    ]
+  },
+  "config": {
+    "baseUrl": "http://cndq.test/CNDQ/",
+    "npcCount": 6,
+    "rpcCount": 6,
+    "tradingDuration": 300,
+    "headless": true
+  },
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "totalDurationMs": 444,
+    "passRate": 0
+  },
+  "tests": [
+    {
+      "test": "playwright",
+      "name": "Playwright Dual Test",
+      "success": false,
+      "error": "PlaywrightDualTest is not a constructor",
+      "errorStack": "TypeError: PlaywrightDualTest is not a constructor\n    at runTest (/Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/run.js:362:30)\n    at main (/Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/run.js:503:30)\n    at Object.<anonymous> (/Users/pstdenis/Downloads/CNDQ_localroot/CNDQ/tests/run.js:551:5)\n    at Module._compile (node:internal/modules/cjs/loader:1740:14)\n    at Object..js (node:internal/modules/cjs/loader:1905:10)\n    at Module.load (node:internal/modules/cjs/loader:1474:32)\n    at Function._load (node:internal/modules/cjs/loader:1286:12)\n    at TracingChannel.traceSync (node:diagnostics_channel:322:14)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:234:24)\n    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:151:5)",
+      "startTime": "2026-02-17T20:01:31.221Z",
+      "endTime": "2026-02-17T20:01:31.665Z",
+      "durationMs": 444,
+      "details": {}
+    }
+  ]
+}

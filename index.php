@@ -104,7 +104,11 @@
             <h1 class="text-6xl md:text-8xl font-black text-red-600 mb-6 tracking-tighter uppercase">Market Closed</h1>
             <p class="text-2xl md:text-3xl text-gray-300 font-light mb-8">Trading is currently suspended.</p>
             <div class="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
-            <p class="text-gray-400 mb-8">Waiting for the instructor to start the market...</p>
+            <p class="text-gray-400 mb-6">Waiting for the instructor to start the market...</p>
+            <p class="text-gray-500 text-sm mb-8">💡 While you wait: review your shadow prices and production strategy in the <strong class="text-gray-300">Production Guide</strong> (top-right corner once the market opens).</p>
+            <button onclick="window.location.reload()" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition border border-gray-600 hover:border-gray-400">
+                ↻ Refresh
+            </button>
         </div>
     </div>
 
@@ -267,7 +271,7 @@
     <div id="confirm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="confirm-title" aria-describedby="confirm-message" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[200] p-4">
         <div class="bg-gray-800 rounded-lg p-4 md:p-6 max-w-md w-full border border-gray-700 shadow-xl">
             <h3 class="text-xl font-bold mb-4 text-white" id="confirm-title">Confirm Action</h3>
-            <p class="text-gray-300 mb-6" id="confirm-message"></p>
+            <p class="text-gray-300 mb-6 whitespace-pre-line" id="confirm-message"></p>
             <div class="flex gap-3 justify-end">
                 <button id="confirm-cancel" class="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded font-semibold transition">
                     Cancel
@@ -539,13 +543,19 @@
                         <div class="flex items-center gap-3 md:gap-6 flex-wrap w-full lg:w-auto">
                             <div class="text-xs md:text-sm w-full lg:w-auto">
                                 <span class="text-gray-200 font-semibold">Shadow Prices</span>
+                                <button type="button" class="ml-1 text-gray-400 hover:text-gray-200 text-xs align-middle leading-none"
+                                    title="Shadow prices show how much your profit increases if you gain 1 more gallon of each chemical. Higher = more valuable to your production. Recalculate after trades to keep them accurate."
+                                    aria-label="What are shadow prices?">
+                                    <span aria-hidden="true" class="inline-block w-4 h-4 rounded-full bg-gray-600 text-center leading-4 text-[10px] font-bold">?</span>
+                                </button>
                                 <span id="staleness-indicator" class="ml-2 text-xs"></span>
                             </div>
-                            <div class="grid grid-cols-2 lg:flex gap-2 md:gap-3 font-mono text-sm md:text-base lg:text-lg w-full lg:w-auto">
-                                <span class="bg-blue-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center">C: <span id="shadow-C">$0</span></span>
-                                <span class="bg-purple-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center">N: <span id="shadow-N">$0</span></span>
-                                <span class="bg-yellow-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center">D: <span id="shadow-D">$0</span></span>
-                                <span class="bg-red-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center">Q: <span id="shadow-Q">$0</span></span>
+                            <!-- Fix 7: flex + overflow-x-auto for mobile so prices stay on one row -->
+                            <div class="flex overflow-x-auto gap-2 md:gap-3 font-mono text-sm md:text-base lg:text-lg w-full lg:w-auto pb-1 lg:pb-0 scrollbar-hide">
+                                <span class="bg-blue-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center flex-shrink-0">C: <span id="shadow-C">$0</span></span>
+                                <span class="bg-purple-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center flex-shrink-0">N: <span id="shadow-N">$0</span></span>
+                                <span class="bg-yellow-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center flex-shrink-0">D: <span id="shadow-D">$0</span></span>
+                                <span class="bg-red-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center flex-shrink-0">Q: <span id="shadow-Q">$0</span></span>
                             </div>
                         </div>
                         <button id="recalc-shadow-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 md:px-6 md:py-2 rounded-lg text-sm md:text-base font-semibold transition shadow-lg w-full md:w-auto flex items-center justify-center gap-2">
@@ -609,6 +619,7 @@
                     <span class="text-xs text-green-300 uppercase font-bold mb-1 z-10">Net Profit</span>
                     <span class="text-2xl font-mono font-bold text-white z-10" id="fin-net-profit" aria-live="polite">$0.00</span>
                     <span class="text-[10px] text-gray-400 uppercase mt-1 z-10" id="fin-total-delta"></span>
+                    <span class="text-[10px] text-yellow-400 font-bold mt-1 z-10" id="fin-rank" aria-live="polite"></span>
                 </div>
             </div>
             
@@ -652,63 +663,31 @@
 
     </div>
 
-    <!-- Post Buy Request Modal -->
+    <!-- Buy Request Detail Modal -->
     <div id="offer-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="offer-modal-title">
         <div class="bg-gray-800 rounded-lg p-4 md:p-6 w-full max-w-md border-2 border-blue-500 shadow-2xl">
-            <h3 class="text-xl md:text-2xl font-bold mb-4 text-blue-400" id="offer-modal-title">📋 Post Buy Request</h3>
-            <p class="text-sm text-gray-300 mb-4">Request to buy chemicals. Other teams will offer to sell to you.</p>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 text-blue-400" id="offer-modal-title">📋 Buy Request</h3>
+            <p class="text-sm text-gray-300 mb-4">You have signalled interest in buying this chemical. Sellers will contact you to negotiate price and quantity.</p>
 
             <div class="space-y-4">
                 <div>
                     <label class="block text-sm font-semibold mb-2 text-gray-300">Chemical</label>
                     <input type="text" id="offer-chemical" readonly class="w-full bg-gray-700 border border-gray-600 rounded px-4 py-3 text-white font-bold text-xl">
                 </div>
-
-                <div>
-                    <label for="offer-quantity" class="block text-sm font-semibold mb-2 text-gray-300">Quantity Needed (gallons)</label>
-                    <input type="range" id="offer-quantity-slider" min="0" max="1000" step="10" value="100" class="w-full h-2 bg-gray-600 rounded-lg appearance-none cursor-pointer accent-blue-500">
-                    <div class="flex items-center gap-2 mt-2">
-                        <button type="button" id="quantity-minus" class="w-10 h-10 bg-gray-600 hover:bg-gray-500 rounded font-bold text-lg transition" aria-label="Decrease quantity">−</button>
-                        <input type="number" id="offer-quantity" min="1" step="10" value="100" class="flex-1 bg-gray-700 border border-gray-600 rounded px-4 py-2 text-white text-lg text-center font-bold" aria-label="Quantity in gallons">
-                        <button type="button" id="quantity-plus" class="w-10 h-10 bg-gray-600 hover:bg-gray-500 rounded font-bold text-lg transition" aria-label="Increase quantity">+</button>
-                    </div>
-                    <p id="offer-sensitivity-warning" class="hidden text-[10px] text-yellow-500 mt-1">⚠️ This quantity exceeds the stable range. Shadow price may change.</p>
-                </div>
-
-                <div>
-                    <label for="offer-price" class="block text-sm font-semibold mb-2 text-gray-300" id="offer-price-label">Maximum Price You'll Pay ($ per gallon)</label>
-                    <div class="flex items-center gap-2">
-                        <button type="button" id="price-minus" class="w-10 h-10 bg-gray-600 hover:bg-gray-500 rounded font-bold text-lg transition" aria-label="Decrease price">−</button>
-                        <input type="number" id="offer-price" min="0" step="0.50" value="5.00" class="flex-1 bg-gray-700 border border-gray-600 rounded px-4 py-2 text-white text-lg text-center font-bold" aria-label="Max price per gallon">
-                        <button type="button" id="price-plus" class="w-10 h-10 bg-gray-600 hover:bg-gray-500 rounded font-bold text-lg transition" aria-label="Increase price">+</button>
-                    </div>
-                    <p class="text-xs text-gray-300 mt-1">💡 Your Shadow Price: <span class="text-green-400 font-semibold"><span id="offer-shadow-hint">$0</span></span> (value to you)</p>
-                </div>
-
-                <div class="bg-gray-700 p-4 rounded-lg border border-gray-600">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm text-gray-300"><strong>Total Cost:</strong></span>
-                        <span class="text-blue-400 font-bold text-xl"><span id="offer-total">$0.00</span></span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs mb-2">
-                        <span class="text-gray-400">Projected Profit Change:</span>
-                        <span class="font-bold" id="offer-profit-delta">$0.00</span>
-                    </div>
-                    <div class="flex justify-between items-center text-xs opacity-70">
-                        <span class="text-gray-400">Your Current Funds:</span>
-                        <span class="font-semibold" id="offer-current-funds">$0.00</span>
-                    </div>
-                </div>
-
-                <!-- Warning if insufficient funds - REMOVED (Infinite Capital) -->
-                <!-- <div id="insufficient-funds-warning" class="hidden badge-error border border-red-500 rounded-lg p-3">
-                    <p class="text-red-400 text-sm font-semibold">⚠️ Insufficient funds! Reduce quantity or max price.</p>
-                </div> -->
+                <p class="text-xs text-gray-400">💡 Shadow Price: <span class="text-green-400 font-semibold"><span id="offer-shadow-hint">$0</span></span> per gallon (your current value for this chemical)</p>
             </div>
 
+            <!-- Hidden inputs kept for JS compatibility -->
+            <input type="hidden" id="offer-quantity" value="0">
+            <input type="hidden" id="offer-quantity-slider" value="0">
+            <input type="hidden" id="offer-price" value="0">
+            <span id="offer-sensitivity-warning" class="hidden"></span>
+            <span id="offer-total" class="hidden"></span>
+            <span id="offer-profit-delta" class="hidden"></span>
+            <span id="offer-current-funds" class="hidden"></span>
+
             <div class="flex gap-3 mt-6">
-                <button id="offer-submit-btn" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded font-semibold transition disabled:opacity-50 disabled:cursor-not-allowed">Post Request</button>
-                <button id="offer-cancel-btn" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-3 rounded font-semibold transition">Cancel</button>
+                <button id="offer-cancel-btn" class="flex-1 bg-gray-600 hover:bg-gray-700 text-white py-3 rounded font-semibold transition">Close</button>
             </div>
         </div>
     </div>

@@ -232,10 +232,13 @@ class NegotiationCard extends HTMLElement {
                 statusBadge = '<span class="px-2 py-1 bg-red-600 text-white rounded text-xs font-semibold">Rejected</span>';
             }
 
-            const borderColor = 'border-gray-600';
-            
+            // Highlight border when it's the player's turn to respond
+            const borderColor = (neg.status === 'pending' && isMyTurn)
+                ? 'border-green-500'
+                : 'border-gray-600';
+
             // Update wrapper classes
-            wrapper.className = `card-wrapper bg-gray-800 rounded p-4 border-2 ${borderColor} shadow-lg transition relative hover:border-gray-500 cursor-pointer`;
+            wrapper.className = `card-wrapper bg-gray-800 rounded p-4 border-2 ${borderColor} shadow-lg transition relative hover:border-gray-400 cursor-pointer`;
 
             // Card Content
             wrapper.innerHTML = `

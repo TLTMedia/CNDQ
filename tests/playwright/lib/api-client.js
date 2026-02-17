@@ -72,8 +72,8 @@ class ApiClient {
     // Production & Shadow Prices APIs
     // ==========================================
     production = {
-        getShadowPrices: async () => this.get('production/shadow-prices.php'),
-        getResults: async () => this.get('production/results.php')
+        getShadowPrices: async () => this.get('production/shadow-prices.php'),    // recalculates LP
+        readShadowPrices: async () => this.get('production/shadow-prices-read.php') // read-only cached
     };
 
     // ==========================================
@@ -147,6 +147,24 @@ class ApiClient {
         toggleNPCSystem: async (enabled) => this.post('admin/npc/toggle-system.php', { enabled })
     };
 
+    // ==========================================
+    // Reports APIs
+    // ==========================================
+    reports = {
+        get: async (type) => this.get(`reports/index.php?type=${type}`),
+        financial: async () => this.get('reports/index.php?type=financial'),
+        transactions: async () => this.get('reports/index.php?type=transactions'),
+        sensitivity: async () => this.get('reports/index.php?type=sensitivity')
+    };
+
+    // ==========================================
+    // Trades APIs
+    // ==========================================
+    trades = {
+        history: async () => this.get('trades/history.php'),
+        global: async (limit = 50) => this.get(`trades/global.php?limit=${limit}`)
+    };
+
     // Legacy/Convenience Aliases (mapped to new structure)
     async getSessionStatus() { return this.session.getStatus(); }
     async resetGame() { return this.admin.resetGame(); }
@@ -160,6 +178,12 @@ class ApiClient {
     async createBuyOrder(c, q, p) { return this.offers.bid(c, q, p); }
     async postListing(c, t, m) { return this.listings.post(c, t, m); }
     async getLeaderboard() { return this.leaderboard.getStandings(); }
+
+    // advertisements is an alias for listings (same data, same endpoints)
+    advertisements = {
+        list: async () => this.listings.list()
+    };
+    async postAdvertisement(chemical, type) { return this.listings.post(chemical, type); }
 }
 
 module.exports = ApiClient;

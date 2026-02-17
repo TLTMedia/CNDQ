@@ -42,7 +42,12 @@ const AVAILABLE_TESTS = {
     dual: {
         name: 'Dual Playability Test',
         file: './test.js',
-        description: 'UI vs API comparison with ROI validation'
+        description: 'UI vs API comparison with ROI validation (Puppeteer)'
+    },
+    playwright: {
+        name: 'Playwright Dual Test',
+        file: './playwright/dual-test.js',
+        description: 'API + UI health checks, negotiation cycle, CSV field validation (Playwright)'
     },
     stress: {
         name: 'Stress Test',
@@ -347,6 +352,14 @@ async function runTest(testKey, config, quiet = false) {
             case 'dual': {
                 const DualPlayabilityTest = require(testInfo.file);
                 const test = new DualPlayabilityTest(config);
+                await test.run();
+                testResult = { success: true };
+                break;
+            }
+
+            case 'playwright': {
+                const PlaywrightDualTest = require(testInfo.file);
+                const test = new PlaywrightDualTest();
                 await test.run();
                 testResult = { success: true };
                 break;

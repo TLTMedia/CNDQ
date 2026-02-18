@@ -17,7 +17,8 @@
             "@lit/reactive-element": "https://cdn.jsdelivr.net/npm/@lit/reactive-element@2/reactive-element.js",
             "@lit/reactive-element/": "https://cdn.jsdelivr.net/npm/@lit/reactive-element@2/",
             "lit-html": "https://cdn.jsdelivr.net/npm/lit-html@3/lit-html.js",
-            "lit-html/": "https://cdn.jsdelivr.net/npm/lit-html@3/"
+            "lit-html/": "https://cdn.jsdelivr.net/npm/lit-html@3/",
+            "lit/directives/unsafe-html.js": "https://cdn.jsdelivr.net/npm/lit-html@3/directives/unsafe-html.js"
         }
     }
     </script>
@@ -106,9 +107,6 @@
             <div class="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
             <p class="text-gray-400 mb-6">Waiting for the instructor to start the market...</p>
             <p class="text-gray-500 text-sm mb-8">💡 While you wait: review your shadow prices and production strategy in the <strong class="text-gray-300">Production Guide</strong> (top-right corner once the market opens).</p>
-            <button onclick="window.location.reload()" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-3 rounded-lg font-semibold transition border border-gray-600 hover:border-gray-400">
-                ↻ Refresh
-            </button>
         </div>
     </div>
 

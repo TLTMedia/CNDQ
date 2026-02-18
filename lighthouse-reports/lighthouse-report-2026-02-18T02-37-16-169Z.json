@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-02-18T02:37:16.170Z",
+  "results": [
+    {
+      "pageName": "Login Page",
+      "url": "",
+      "scores": {},
+      "accessibilityAudits": [],
+      "success": false,
+      "error": "lighthouse is not a function"
+    },
+    {
+      "pageName": "Main App",
+      "url": "index.php",
+      "scores": {},
+      "accessibilityAudits": [],
+      "success": false,
+      "error": "lighthouse is not a function"
+    },
+    {
+      "pageName": "Admin Panel",
+      "url": "admin/",
+      "scores": {},
+      "accessibilityAudits": [],
+      "success": false,
+      "error": "lighthouse is not a function"
+    }
+  ],
+  "averageScores": {
+    "accessibility": 0,
+    "performance": 0,
+    "bestPractices": 0,
+    "seo": 0
+  }
+}

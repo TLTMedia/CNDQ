@@ -144,7 +144,8 @@ class ApiClient {
         createNPC: async (skillLevel, count = 1) => this.post('admin/npc/create.php', { skillLevel, count }),
         deleteNPC: async (npcId) => this.post('admin/npc/delete.php', { npcId }),
         toggleNPC: async (npcId, active) => this.post('admin/npc/toggle.php', { npcId, active }),
-        toggleNPCSystem: async (enabled) => this.post('admin/npc/toggle-system.php', { enabled })
+        toggleNPCSystem: async (enabled) => this.post('admin/npc/toggle-system.php', { enabled }),
+        updateDelays: async (delays) => this.post('admin/npc/update-delays.php', { delays })
     };
 
     // ==========================================

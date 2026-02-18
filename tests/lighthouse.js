@@ -5,7 +5,7 @@
  * Tests: Accessibility, Performance, Best Practices, SEO
  */
 
-const lighthouse = require('lighthouse');
+const lighthouse = require('lighthouse').default;
 const BrowserHelper = require('./helpers/browser');
 const ReportingHelper = require('./helpers/reporting');
 const fs = require('fs');

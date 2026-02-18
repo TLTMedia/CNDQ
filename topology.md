@@ -7,7 +7,8 @@ This document describes the local development environment setup where the applic
 - **Production Environment**: The live application is hosted inside a subdirectory named `CNDQ`.
   - *Example URL*: `https://production.server.com/CNDQ/index.php`
 
-- **Local (Herd) Environment**: The Herd web server root points to `C:\Users\pauls\Herd`. The entire CNDQ application is located at `C:\Users\pauls\Herd\CNDQ`.
+- **Local Development (Herd/Valet)**: The web server root is the parent directory of the repository. This mimics the production subdirectory structure.
+  - *Structure*: `[Web Root]/CNDQ/`
   - *Emulated URL*: `http://cndq.test/CNDQ/`
 
 ## Path Handling Strategy
@@ -47,9 +48,9 @@ All paths use relative references based on the current page location:
 - **Standards-compliant**: Uses standard HTML/HTTP relative path resolution
 - **Production-ready**: Works identically in subdirectory deployments
 
-### 3. Testing (Puppeteer)
+### 3. Testing (Puppeteer & Playwright)
 
 Automated tests use absolute URLs but work seamlessly with relative paths:
-- **`baseUrl` Configuration**: All Puppeteer test configurations (`run-tests.js`, `haggle-test.js`, etc.) set their `baseUrl` to `http://cndq.test/CNDQ`.
+- **`baseUrl` Configuration**: All test configurations (`tests/test-config.json`, `tests/haggle-test.js`, `tests/playwright/config.js`, etc.) set their `baseUrl` to `http://cndq.test/CNDQ/`.
 - **Authentication**: Cookie paths are set to `/` to work across all pages.
 - **Relative path resolution**: Once the test navigates to a page, all relative paths (like `./api/endpoint.php`) are resolved by the browser relative to that page's location.

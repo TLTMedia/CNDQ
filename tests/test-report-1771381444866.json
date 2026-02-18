@@ -1,0 +1,108 @@
+{
+  "timestamp": "2026-02-18T02:38:22.865Z",
+  "controller": {
+    "version": "1.0.0",
+    "configPath": "C:\\Users\\pauls\\HerdRoot\\CNDQ\\tests\\test-config.json",
+    "testsRequested": [
+      "dual",
+      "playwright",
+      "stress",
+      "lighthouse",
+      "accessibility",
+      "visual"
+    ]
+  },
+  "config": {
+    "baseUrl": "http://cndq.test/CNDQ/",
+    "npcCount": 6,
+    "rpcCount": 6,
+    "tradingDuration": 300,
+    "headless": true
+  },
+  "summary": {
+    "total": 6,
+    "passed": 3,
+    "failed": 3,
+    "totalDurationMs": 847969,
+    "passRate": 50
+  },
+  "tests": [
+    {
+      "test": "dual",
+      "name": "Dual Playability Test",
+      "success": true,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T02:24:04.873Z",
+      "endTime": "2026-02-18T02:36:21.618Z",
+      "durationMs": 736745,
+      "details": {
+        "success": true
+      }
+    },
+    {
+      "test": "playwright",
+      "name": "Playwright Dual Test",
+      "success": true,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T02:36:23.620Z",
+      "endTime": "2026-02-18T02:37:10.152Z",
+      "durationMs": 46532,
+      "details": {
+        "success": true
+      }
+    },
+    {
+      "test": "stress",
+      "name": "Stress Test",
+      "success": false,
+      "error": "StressTest is not a constructor",
+      "errorStack": "TypeError: StressTest is not a constructor\n    at runTest (C:\\Users\\pauls\\HerdRoot\\CNDQ\\tests\\run.js:370:30)\n    at main (C:\\Users\\pauls\\HerdRoot\\CNDQ\\tests\\run.js:503:30)",
+      "startTime": "2026-02-18T02:37:12.155Z",
+      "endTime": "2026-02-18T02:37:12.165Z",
+      "durationMs": 10,
+      "details": {}
+    },
+    {
+      "test": "lighthouse",
+      "name": "Lighthouse Audit",
+      "success": false,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T02:37:14.165Z",
+      "endTime": "2026-02-18T02:37:16.412Z",
+      "durationMs": 2247,
+      "details": {
+        "success": false
+      }
+    },
+    {
+      "test": "accessibility",
+      "name": "Accessibility Test",
+      "success": false,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T02:37:18.416Z",
+      "endTime": "2026-02-18T02:38:13.892Z",
+      "durationMs": 55476,
+      "details": {
+        "success": false,
+        "violations": 351
+      }
+    },
+    {
+      "test": "visual",
+      "name": "Visual UX Screenshot Test",
+      "success": true,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T02:38:15.905Z",
+      "endTime": "2026-02-18T02:38:22.864Z",
+      "durationMs": 6959,
+      "details": {
+        "success": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "timestamp": "2026-02-18T04:07:43.158Z",
+  "controller": {
+    "version": "1.0.0",
+    "configPath": "C:\\Users\\pauls\\HerdRoot\\CNDQ\\tests\\test-config.json",
+    "testsRequested": [
+      "dual",
+      "playwright",
+      "stress",
+      "lighthouse",
+      "accessibility",
+      "visual"
+    ]
+  },
+  "config": {
+    "baseUrl": "http://cndq.test/CNDQ/",
+    "npcCount": 6,
+    "rpcCount": 6,
+    "tradingDuration": 300,
+    "headless": true
+  },
+  "summary": {
+    "total": 6,
+    "passed": 4,
+    "failed": 2,
+    "totalDurationMs": 1029520,
+    "passRate": 67
+  },
+  "tests": [
+    {
+      "test": "dual",
+      "name": "Dual Playability Test",
+      "success": true,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T03:50:23.592Z",
+      "endTime": "2026-02-18T04:01:32.281Z",
+      "durationMs": 668689,
+      "details": {
+        "success": true
+      }
+    },
+    {
+      "test": "playwright",
+      "name": "Playwright Dual Test",
+      "success": true,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T04:01:34.286Z",
+      "endTime": "2026-02-18T04:02:21.136Z",
+      "durationMs": 46850,
+      "details": {
+        "success": true
+      }
+    },
+    {
+      "test": "stress",
+      "name": "Stress Test",
+      "success": true,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T04:02:23.142Z",
+      "endTime": "2026-02-18T04:06:08.021Z",
+      "durationMs": 224879,
+      "details": {
+        "success": true
+      }
+    },
+    {
+      "test": "lighthouse",
+      "name": "Lighthouse Audit",
+      "success": false,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T04:06:10.032Z",
+      "endTime": "2026-02-18T04:06:35.072Z",
+      "durationMs": 25040,
+      "details": {
+        "success": false
+      }
+    },
+    {
+      "test": "accessibility",
+      "name": "Accessibility Test",
+      "success": false,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T04:06:37.079Z",
+      "endTime": "2026-02-18T04:07:34.676Z",
+      "durationMs": 57597,
+      "details": {
+        "success": false,
+        "violations": 608
+      }
+    },
+    {
+      "test": "visual",
+      "name": "Visual UX Screenshot Test",
+      "success": true,
+      "error": null,
+      "errorStack": null,
+      "startTime": "2026-02-18T04:07:36.692Z",
+      "endTime": "2026-02-18T04:07:43.157Z",
+      "durationMs": 6465,
+      "details": {
+        "success": true
+      }
+    }
+  ]
+}

@@ -219,12 +219,17 @@ class StressTest {
         await lbContext.close();
     }
 
-    async checkLogs(checkpointName) {
-        console.log(`\n   🔎 Checking logs at: ${checkpointName}`);
-        // Here you could add logic to grep server logs or check specific DB states
-        // For now, we just print a separator
-        console.log('   ----------------------------------------');
+        async checkLogs(checkpointName) {
+            console.log(`\n   🔎 Checking logs at: ${checkpointName}`);
+            // Here you could add logic to grep server logs or check specific DB states
+            // For now, we just print a separator
+            console.log('   ----------------------------------------');
+        }
     }
-}
-
-new StressTest().run();
+    
+    if (require.main === module) {
+        new StressTest().run();
+    }
+    
+    module.exports = StressTest;
+    

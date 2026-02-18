@@ -114,7 +114,9 @@ class ExpertStrategy extends NPCTradingStrategy
                 if ($allowableDecrease < 1) continue;
 
                 // Ensure we never offer for less than a reasonable floor (e.g. $0.50) even if shadow price is 0
-                $offerPrice = round(max($minSellPrice, $targetPrice * 0.98, 0.50), 2);
+                // JITTER: NPCs shouldn't always aim for the exact same margin
+                $targetMargin = $this->jitter(self::SELL_MARGIN, 0.03); 
+                $offerPrice = $this->roundToHuman(max($shadowPrice * $targetMargin, $targetPrice * 0.98, 0.50), 'price');
                 
                 // Limit quantity to requested, NPC logic, and sensitivity range
                 $offerQty = min(
@@ -122,6 +124,7 @@ class ExpertStrategy extends NPCTradingStrategy
                     $this->calculateSellQuantity($chemical, $this->inventory[$chemical]),
                     $allowableDecrease
                 );
+                $offerQty = $this->roundToHuman($offerQty, 'quantity');
 
                 if ($offerQty >= 1) {
                     return [
@@ -160,7 +163,9 @@ class ExpertStrategy extends NPCTradingStrategy
 
             // Only post buy request if shadow price is high and inventory is low
             if ($shadowPrice > 1.0 && $currentAmount < 2000) { 
-                $maxBuyPrice = round($shadowPrice * self::BUY_MARGIN, 2);
+                // JITTER: Use slightly different margins each time
+                $targetMargin = $this->jitter(self::BUY_MARGIN, 0.03);
+                $maxBuyPrice = $this->roundToHuman($shadowPrice * $targetMargin, 'price');
                 
                 // EXPERT LOGIC: Only buy what is within the ALLOWABLE INCREASE range
                 $allowableIncrease = $this->ranges[$chemical]['allowableIncrease'] ?? 0;
@@ -170,6 +175,7 @@ class ExpertStrategy extends NPCTradingStrategy
                     $this->calculateBuyQuantity($chemical, $currentAmount),
                     $allowableIncrease
                 );
+                $quantity = $this->roundToHuman($quantity, 'quantity');
 
                 if ($quantity >= 1 && $this->hasSufficientFunds($quantity * $maxBuyPrice)) {
                     return [
@@ -409,6 +415,8 @@ class ExpertStrategy extends NPCTradingStrategy
         if ($npcIsSeller) {
             $counterPrice = $optimalPrice - ($compromiseFactor * ($optimalPrice - $playerPrice));
             $counterPrice = max($absoluteMinPrice, min($optimalPrice, $counterPrice));
+            // Jitter the counter price slightly and round
+            $counterPrice = $this->roundToHuman($this->jitter($counterPrice, 0.01), 'price');
 
             // Accept if player's price is good enough AND within range
             if ($playerPrice >= $optimalPrice * 0.98 && $withinRange) {
@@ -422,6 +430,8 @@ class ExpertStrategy extends NPCTradingStrategy
         } else {
             $counterPrice = $optimalPrice + ($compromiseFactor * ($playerPrice - $optimalPrice));
             $counterPrice = max($optimalPrice, min($absoluteMaxPrice, $counterPrice));
+            // Jitter the counter price slightly and round
+            $counterPrice = $this->roundToHuman($this->jitter($counterPrice, 0.01), 'price');
 
             // Accept if player's price is good enough AND within range
             if ($playerPrice <= $optimalPrice * 1.02 && $withinRange) {
@@ -439,6 +449,8 @@ class ExpertStrategy extends NPCTradingStrategy
         if (!$withinRange) {
             if ($npcIsSeller) $targetQuantity = floor($range['allowableDecrease']);
             else $targetQuantity = floor($range['allowableIncrease']);
+
+            $targetQuantity = $this->roundToHuman($targetQuantity, 'quantity');
 
             // Reject if corrected quantity is trivially small (avoid 1-gallon counter offers)
             if ($targetQuantity < 10) {
@@ -458,7 +470,7 @@ class ExpertStrategy extends NPCTradingStrategy
             'type' => 'counter_negotiation',
             'negotiationId' => $negotiation['id'],
             'quantity' => $targetQuantity,
-            'price' => round($counterPrice, 2)
+            'price' => $counterPrice
         ];
     }
 }

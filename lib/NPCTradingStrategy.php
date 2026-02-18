@@ -274,11 +274,33 @@ abstract class NPCTradingStrategy
     }
 
     /**
+     * Round a number to a "human-like" value (multiples of 5, 10, or 25)
+     * Real traders rarely offer "53.27 gallons"
+     */
+    protected function roundToHuman($value, $type = 'quantity')
+    {
+        if ($type === 'quantity') {
+            if ($value >= 100) return round($value / 10) * 10;
+            if ($value >= 50) return round($value / 5) * 5;
+            return round($value);
+        } else {
+            // Price: Round to nearest $0.05 or $0.25
+            if ($value >= 10) return round($value * 4) / 4; // Nearest $0.25
+            return round($value * 20) / 20; // Nearest $0.05
+        }
+    }
+
+    /**
+     * Apply a random "jitter" to a value to prevent robotic precision
+     */
+    protected function jitter($value, $percent = 0.02)
+    {
+        $factor = 1.0 + $this->randomFloat(-$percent, $percent);
+        return $value * $factor;
+    }
+
+    /**
      * Generate random number within range
-     *
-     * @param float $min Minimum value
-     * @param float $max Maximum value
-     * @return float Random value
      */
     protected function randomFloat($min, $max)
     {

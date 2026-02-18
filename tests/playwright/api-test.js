@@ -104,6 +104,21 @@ class APIPlayabilityTest {
         console.log('   ✅ Game reset');
 
         await this.adminClient.admin.toggleNPCSystem(true);
+        
+        // Optimize NPC delays for testing (Fast response)
+        console.log('🛡️  ADMIN: Optimizing NPC delays for test performance...');
+        await this.adminClient.admin.updateDelays({
+            expert: { min: 1, max: 2 },
+            novice: { min: 1, max: 3 },
+            beginner: { min: 1, max: 3 },
+            negotiation: {
+                expert: { min: 0, max: 1 },
+                novice: { min: 1, max: 2 },
+                beginner: { min: 1, max: 2 }
+            },
+            idle: { min: 1, max: 2 }
+        });
+
         await this.adminClient.admin.createNPC('expert', 2);
         await this.adminClient.admin.createNPC('novice', 2);
 

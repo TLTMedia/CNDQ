@@ -108,7 +108,18 @@ class NPCManager
     {
         return [
             'enabled' => false,
-            'npcs' => []
+            'npcs' => [],
+            'delays' => [
+                'expert' => ['min' => 5, 'max' => 20],
+                'novice' => ['min' => 10, 'max' => 40],
+                'beginner' => ['min' => 10, 'max' => 40],
+                'negotiation' => [
+                    'expert' => ['min' => 3, 'max' => 8],
+                    'novice' => ['min' => 5, 'max' => 12],
+                    'beginner' => ['min' => 5, 'max' => 12]
+                ],
+                'idle' => ['min' => 2, 'max' => 5]
+            ]
         ];
     }
 
@@ -359,7 +370,7 @@ class NPCManager
 
             try {
                 $originalNextAction = $npc['nextActionAt'] ?? 0;
-                $this->runNPCTrade($npc, $currentSession);
+                $this->runNPCTrade($npc, $currentSession, $config);
                 
                 if (($npc['nextActionAt'] ?? 0) !== $originalNextAction) {
                     $configChanged = true;
@@ -378,7 +389,7 @@ class NPCManager
     /**
      * Run trading logic for a single NPC
      */
-    private function runNPCTrade(&$npc, $currentSession = null)
+    private function runNPCTrade(&$npc, $currentSession = null, $globalConfig = null)
     {
         // 1. Time-gating check
         $currentTime = time();
@@ -387,10 +398,15 @@ class NPCManager
             return;
         }
 
+        // Load config if not provided
+        if ($globalConfig === null) {
+            $globalConfig = $this->loadConfig();
+        }
+        $delays = $globalConfig['delays'] ?? $this->getDefaultConfig()['delays'];
+
         error_log("DEBUG: Running trade for {$npc['teamName']} ({$npc['email']})");
         
-        // Load appropriate strategy based on skill level
-        $strategyClass = $this->getStrategyClass($npc['skillLevel']);
+        // ... (rest of the existing logic for strategy loading and execution)
 
         if (!class_exists($strategyClass)) {
             $strategyFile = $this->getStrategyFile($npc['skillLevel']);
@@ -472,20 +488,24 @@ class NPCManager
         }
 
         // Update nextActionAt if an action was taken (or just to throttle checks)
-        // If action taken: 3-15 seconds delay (Expert is faster)
-        // If NO action taken: 2-5 seconds delay (to avoid spamming checks but stay responsive)
-        $isExpert = ($npc['skillLevel'] === 'expert');
+        $skill = $npc['skillLevel'] ?? 'beginner';
         
-        $minDelay = $actionTaken ? ($isExpert ? 3 : 5) : 2;
-        $maxDelay = $actionTaken ? ($isExpert ? 15 : 30) : 5;
+        if ($actionTaken) {
+            $minDelay = $delays[$skill]['min'] ?? ($skill === 'expert' ? 5 : 10);
+            $maxDelay = $delays[$skill]['max'] ?? ($skill === 'expert' ? 20 : 40);
+        } else {
+            $minDelay = $delays['idle']['min'] ?? 2;
+            $maxDelay = $delays['idle']['max'] ?? 5;
+        }
         
-        // If there are still pending negotiations for the NPC, reduce delay significantly to keep momentum
+        // If there are still pending negotiations for the NPC, reduce delay slightly to keep momentum
         $negotiationManager = $this->getNegotiationManager();
         $pendingCount = count($negotiationManager->getTeamNegotiations($npc['email']));
         if ($pendingCount > 0) {
-            $minDelay = 1;
-            $maxDelay = $isExpert ? 3 : 5;
-            error_log("NPC {$npc['teamName']} has {$pendingCount} pending negotiations. Shortening delay to {$minDelay}-{$maxDelay}s.");
+            $negDelays = $delays['negotiation'][$skill] ?? ['min' => 3, 'max' => 8];
+            $minDelay = $negDelays['min'];
+            $maxDelay = $negDelays['max'];
+            error_log("NPC {$npc['teamName']} has {$pendingCount} pending negotiations. Thinking for {$minDelay}-{$maxDelay}s.");
         }
         
         $npc['nextActionAt'] = time() + rand($minDelay, $maxDelay);

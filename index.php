@@ -540,7 +540,7 @@
                     <div class="flex items-center justify-between flex-wrap gap-3 md:gap-4">
                         <div class="flex items-center gap-3 md:gap-6 flex-wrap w-full lg:w-auto">
                             <div class="text-xs md:text-sm w-full lg:w-auto">
-                                <span class="text-gray-200 font-semibold">Shadow Prices</span>
+                                <span class="text-gray-200 font-semibold uppercase tracking-wider">Strategy Insight</span>
                                 <button type="button" class="ml-1 text-gray-400 hover:text-gray-200 text-xs align-middle leading-none"
                                     title="Shadow prices show how much your profit increases if you gain 1 more gallon of each chemical. Higher = more valuable to your production. Recalculate after trades to keep them accurate."
                                     aria-label="What are shadow prices?">
@@ -548,20 +548,10 @@
                                 </button>
                                 <span id="staleness-indicator" class="ml-2 text-xs"></span>
                             </div>
-                            <!-- Fix 7: flex + overflow-x-auto for mobile so prices stay on one row -->
-                            <div class="flex overflow-x-auto gap-2 md:gap-3 font-mono text-sm md:text-base lg:text-lg w-full lg:w-auto pb-1 lg:pb-0 scrollbar-hide">
-                                <span class="bg-blue-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center flex-shrink-0">C: <span id="shadow-C">$0</span></span>
-                                <span class="bg-purple-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center flex-shrink-0">N: <span id="shadow-N">$0</span></span>
-                                <span class="bg-yellow-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center flex-shrink-0">D: <span id="shadow-D">$0</span></span>
-                                <span class="bg-red-600 text-white px-2 md:px-3 py-1 rounded min-w-[90px] md:min-w-[110px] text-center flex-shrink-0">Q: <span id="shadow-Q">$0</span></span>
+                            <div class="text-sm text-gray-400 italic">
+                                Your shadow prices and bottlenecks are shown on each chemical card below.
                             </div>
                         </div>
-                        <button id="recalc-shadow-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 md:px-6 md:py-2 rounded-lg text-sm md:text-base font-semibold transition shadow-lg w-full md:w-auto flex items-center justify-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                            </svg>
-                            Recalculate Shadow Prices
-                        </button>
                     </div>
                     <div id="staleness-warning" class="hidden mt-3 p-3 rounded text-sm"></div>
                 </div>
@@ -607,10 +597,12 @@
                 <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 shadow flex flex-col items-center">
                     <span class="text-xs text-gray-400 uppercase font-bold mb-1">Sales Rev</span>
                     <span class="text-xl font-mono text-green-400" id="fin-sales-rev" aria-live="polite">$0.00</span>
+                    <span id="fin-sales-delta"></span>
                 </div>
                 <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 shadow flex flex-col items-center">
                     <span class="text-xs text-gray-400 uppercase font-bold mb-1">Purchase Cost</span>
                     <span class="text-xl font-mono text-red-400" id="fin-purchase-cost" aria-live="polite">$0.00</span>
+                    <span id="fin-purchase-delta"></span>
                 </div>
                 <div class="bg-gray-800 p-4 rounded-lg border border-gray-700 shadow flex flex-col items-center relative overflow-hidden">
                     <div class="absolute inset-0 bg-green-600 opacity-10"></div>
@@ -621,9 +613,18 @@
                 </div>
             </div>
             
-            <!-- Button to view history -->
-            <div class="flex justify-end mb-4">
-                <button id="view-history-btn" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded shadow flex items-center gap-1 transition" aria-label="Open your personal transaction history">
+            <!-- Actions bar above chemical cards -->
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+                <div class="flex items-center gap-2">
+                    <h3 class="text-xl font-bold text-white uppercase tracking-tight">Chemical Inventory</h3>
+                    <button id="recalc-shadow-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-lg flex items-center justify-center gap-2 ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                        Recalculate Shadow Prices
+                    </button>
+                </div>
+                <button id="view-history-btn" class="bg-gray-700 hover:bg-gray-600 text-white px-3 py-2 rounded shadow flex items-center gap-1 transition text-sm" aria-label="Open your personal transaction history">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     View Transaction History
                 </button>
@@ -662,8 +663,8 @@
     </div>
 
     <!-- Buy Request Detail Modal -->
-    <div id="offer-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="offer-modal-title">
-        <div class="bg-gray-800 rounded-lg p-4 md:p-6 w-full max-w-md border-2 border-blue-500 shadow-2xl">
+    <div id="offer-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="offer-modal-title">
+        <div class="bg-gray-800 rounded-lg p-4 md:p-6 w-full max-w-md border-2 border-blue-500 shadow-2xl my-auto">
             <h3 class="text-xl md:text-2xl font-bold mb-4 text-blue-400" id="offer-modal-title">📋 Buy Request</h3>
             <p class="text-sm text-gray-300 mb-4">You have signalled interest in buying this chemical. Sellers will contact you to negotiate price and quantity.</p>
 
@@ -691,19 +692,19 @@
     </div>
 
     <!-- Respond to Buy Request Modal -->
-    <div id="respond-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4" role="dialog" aria-modal="true" aria-labelledby="respond-modal-title">
-        <div class="bg-gray-800 rounded-lg p-4 md:p-6 w-full max-w-md border-2 border-green-500 shadow-2xl">
+    <div id="respond-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="respond-modal-title">
+        <div class="bg-gray-800 rounded-lg p-4 md:p-6 w-full max-w-md border-2 border-green-500 shadow-2xl my-auto">
             <h3 class="text-xl md:text-2xl font-bold mb-4 text-green-500" id="respond-modal-title">💰 Respond to Buy Request</h3>
             <p class="text-sm text-gray-300 mb-4"><strong id="respond-buyer-name">Team</strong> wants to buy <strong id="respond-chemical">Chemical</strong></p>
 
             <div class="space-y-4">
                 <!-- Buy Request Details -->
-                <div class="bg-gray-700 p-3 rounded-lg border border-gray-600">
+                <div id="respond-buyer-details" class="bg-gray-700 p-3 rounded-lg border border-gray-600">
                     <div class="grid grid-cols-2 gap-2 text-sm">
                         <div class="text-gray-300">They want:</div>
-                        <div class="text-white font-semibold"><span id="respond-requested-qty">0</span> gallons</div>
+                        <div class="text-white font-semibold"><span id="respond-requested-qty">Negotiable</span></div>
                         <div class="text-gray-300">Max price:</div>
-                        <div class="text-blue-400 font-semibold"><span id="respond-max-price">$0</span>/gal</div>
+                        <div class="text-blue-400 font-semibold"><span id="respond-max-price">Negotiable</span></div>
                     </div>
                 </div>
 
@@ -716,6 +717,10 @@
                     <div class="flex justify-between text-xs mt-1">
                         <span class="text-gray-400">Your Shadow Price:</span>
                         <span class="text-green-400 font-semibold"><span id="respond-shadow-price">$0</span>/gal</span>
+                    </div>
+                    <div class="flex justify-between text-[10px] mt-1 text-gray-400 italic">
+                        <span>Stability Range:</span>
+                        <span id="respond-range-display" class="text-info font-mono">N/A</span>
                     </div>
                 </div>
 
@@ -740,13 +745,13 @@
                         <input type="number" id="respond-price" min="0" step="0.50" value="5.00" class="flex-1 bg-gray-700 border border-gray-600 rounded px-4 py-2 text-white text-lg text-center font-bold">
                         <button type="button" id="respond-price-plus" class="w-10 h-10 bg-gray-600 hover:bg-gray-500 rounded font-bold text-lg transition">+</button>
                     </div>
-                    <p class="text-xs text-gray-400 mt-1">💡 Lower than their max price to be competitive</p>
+                    <p class="text-xs text-gray-400 mt-1">💡 Higher than shadow price = Profit</p>
                 </div>
 
                 <!-- Total Revenue -->
                 <div class="bg-gray-700 p-4 rounded-lg border border-gray-600">
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm text-gray-300"><strong>Your Revenue:</strong></span>
+                        <span class="text-sm text-gray-300"><strong>Trade Cash:</strong></span>
                         <span class="text-green-400 font-bold text-xl"><span id="respond-total">$0.00</span></span>
                     </div>
                     <div class="flex justify-between items-center text-xs">

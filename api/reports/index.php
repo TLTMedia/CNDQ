@@ -196,7 +196,7 @@ try {
             $status = $data['status'] ?? ($slack < 0.001 ? 'Binding' : 'Not Binding');
 
             $constraints[] = [
-                'name' => "Liquid $chem Used",
+                'name' => "Liquid $chem",
                 'cellValue' => round($used, 2),
                 'formula' => "Used <= Available",
                 'status' => $status,

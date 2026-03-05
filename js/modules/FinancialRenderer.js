@@ -86,35 +86,47 @@ export class FinancialRenderer {
         // Calculate delta from last transaction
         let inventoryDelta = 0;
         let totalDelta = 0;
+        let salesDelta = 0;
+        let purchaseDelta = 0;
 
         if (transactions.length > 0) {
-            const lastTransaction = transactions[transactions.length - 1];
+            // Sort by timestamp or use the last one in the array (assuming it's chronological)
+            const sortedTxns = [...transactions].sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+            const lastTransaction = sortedTxns[sortedTxns.length - 1];
+            
             const lastAmount = Math.abs(lastTransaction.totalAmount || (lastTransaction.quantity * lastTransaction.pricePerGallon));
+            const heat = lastTransaction.heat || { sellerGain: 0, buyerGain: 0 };
+            const quantity = lastTransaction.quantity || 0;
+            const pricePerGallon = lastTransaction.pricePerGallon || 0;
 
-            // For sellers: positive delta (gained money)
-            // For buyers: negative delta (spent money)
             if (lastTransaction.role === 'seller') {
-                totalDelta = lastAmount;
-                inventoryDelta = lastAmount;
+                // I sold inventory. The value lost is (pricePerGallon - sellerGain) * quantity
+                // sellerGain = pricePerGallon - shadowPrice => shadowPrice = pricePerGallon - sellerGain
+                const myShadowPrice = pricePerGallon - (heat.sellerGain || 0);
+                inventoryDelta = -(myShadowPrice * quantity);
+                totalDelta = (heat.sellerGain || 0) * quantity;
+                salesDelta = lastAmount;
             } else if (lastTransaction.role === 'buyer') {
-                totalDelta = -lastAmount;
-                inventoryDelta = -lastAmount;
+                // I bought inventory. The value gained is (pricePerGallon + buyerGain) * quantity
+                // buyerGain = shadowPrice - pricePerGallon => shadowPrice = pricePerGallon + buyerGain
+                const myShadowPrice = pricePerGallon + (heat.buyerGain || 0);
+                inventoryDelta = (myShadowPrice * quantity);
+                totalDelta = (heat.buyerGain || 0) * quantity;
+                purchaseDelta = lastAmount;
             }
 
             console.log('[DEBUG] Financial Delta from Last Transaction:', {
-                transactionCount: transactions.length,
-                lastTransaction: {
-                    role: lastTransaction.role,
-                    chemical: lastTransaction.chemical,
-                    quantity: lastTransaction.quantity,
-                    pricePerGallon: lastTransaction.pricePerGallon,
-                    totalAmount: lastAmount
-                },
+                transactionId: lastTransaction.transactionId,
+                role: lastTransaction.role,
+                chemical: lastTransaction.chemical,
+                quantity: lastTransaction.quantity,
+                pricePerGallon: lastTransaction.pricePerGallon,
+                totalAmount: lastAmount,
+                sellerGain: heat.sellerGain,
+                buyerGain: heat.buyerGain,
                 inventoryDelta,
                 totalDelta
             });
-        } else {
-            console.log('[DEBUG] No transactions yet, deltas = 0');
         }
 
         // Update DOM
@@ -122,7 +134,9 @@ export class FinancialRenderer {
             inventory: document.getElementById('fin-production-rev'),
             inventoryDelta: document.getElementById('fin-production-delta'),
             salesRev: document.getElementById('fin-sales-rev'),
+            salesDelta: document.getElementById('fin-sales-delta'),
             purchaseCost: document.getElementById('fin-purchase-cost'),
+            purchaseDelta: document.getElementById('fin-purchase-delta'),
             totalValue: document.getElementById('fin-net-profit'),
             totalDelta: document.getElementById('fin-total-delta'),
             improvement: document.getElementById('fin-improvement'),
@@ -151,14 +165,24 @@ export class FinancialRenderer {
             els.salesRev.textContent = this.formatCurrency(salesRevenue);
         }
 
+        if (els.salesDelta) {
+            els.salesDelta.textContent = salesDelta !== 0 ? `+${this.formatCurrency(salesDelta)}` : '';
+            els.salesDelta.className = `text-[10px] font-bold text-green-400 mt-1`;
+        }
+
         if (els.purchaseCost) {
             els.purchaseCost.textContent = this.formatCurrency(purchaseCosts);
+        }
+
+        if (els.purchaseDelta) {
+            els.purchaseDelta.textContent = purchaseDelta !== 0 ? `+${this.formatCurrency(purchaseDelta)}` : '';
+            els.purchaseDelta.className = `text-[10px] font-bold text-red-400 mt-1`;
         }
 
         if (els.inventoryDelta) {
             const deltaSign = inventoryDelta >= 0 ? '+' : '';
             const deltaColor = inventoryDelta >= 0 ? 'text-green-400' : 'text-red-400';
-            els.inventoryDelta.textContent = inventoryDelta !== 0 ? `${deltaSign}${this.formatCurrency(inventoryDelta)} from last trade` : 'No change yet';
+            els.inventoryDelta.textContent = inventoryDelta !== 0 ? `${deltaSign}${this.formatCurrency(inventoryDelta)} value change` : 'No change yet';
             els.inventoryDelta.className = `text-[10px] uppercase mt-1 ${inventoryDelta !== 0 ? deltaColor : 'text-gray-500'}`;
         }
 
@@ -172,7 +196,8 @@ export class FinancialRenderer {
         if (els.totalDelta) {
             const deltaSign = totalDelta >= 0 ? '+' : '';
             const deltaColor = totalDelta >= 0 ? 'text-green-400' : 'text-red-400';
-            els.totalDelta.textContent = totalDelta !== 0 ? `${deltaSign}${this.formatCurrency(totalDelta)} from last trade` : 'No change yet';
+            const deltaLabel = totalDelta >= 0 ? 'net gain' : 'net loss';
+            els.totalDelta.textContent = totalDelta !== 0 ? `${deltaSign}${this.formatCurrency(totalDelta)} ${deltaLabel}` : 'No change yet';
             els.totalDelta.className = `text-[10px] uppercase mt-1 z-10 ${totalDelta !== 0 ? deltaColor : 'text-gray-400'}`;
         }
 

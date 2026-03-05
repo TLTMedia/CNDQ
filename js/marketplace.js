@@ -368,7 +368,8 @@ class MarketplaceApp {
         ['C', 'N', 'D', 'Q'].forEach(chem => {
             const price = this.shadowPrices[chem] || 0;
             // Update header shadow prices
-            document.getElementById(`shadow-${chem}`).textContent = this.formatCurrency(price);
+            const shadowEl = document.getElementById(`shadow-${chem}`);
+            if (shadowEl) shadowEl.textContent = this.formatCurrency(price);
 
             // Update chemical card shadow prices via component properties
             const card = document.querySelector(`chemical-card[chemical="${chem}"]`);
@@ -376,6 +377,14 @@ class MarketplaceApp {
                 card.shadowPrice = price;
                 if (this.ranges && this.ranges[chem]) {
                     card.ranges = this.ranges[chem];
+                }
+                
+                // Pass slack from constraints
+                if (this.constraints) {
+                    const constraint = this.constraints.find(c => c.name === chem);
+                    if (constraint) {
+                        card.slack = constraint.slack;
+                    }
                 }
             }
         });
@@ -945,14 +954,23 @@ class MarketplaceApp {
 
         // Get buy request details from listings
         const buyListings = this.listings[chemical]?.buy || [];
-        const buyRequest = buyListings.find(ad => ad.teamId === buyerTeamId);
+        const buyRequest = buyListings.find(ad => ad.id === listingId);
 
-        // Set request details (if we have them - otherwise use defaults)
-        const requestedQty = buyRequest?.quantity || 100;
-        const maxPrice = buyRequest?.maxPrice || 5.00;
+        // Set request details (if we have them - otherwise they are hidden/negotiable)
+        const requestedQtyEl = document.getElementById('respond-requested-qty');
+        const maxPriceEl = document.getElementById('respond-max-price');
 
-        document.getElementById('respond-requested-qty').textContent = requestedQty.toLocaleString();
-        document.getElementById('respond-max-price').textContent = this.formatCurrency(maxPrice);
+        if (buyRequest && buyRequest.quantity) {
+            requestedQtyEl.textContent = `${buyRequest.quantity.toLocaleString()} gallons`;
+        } else {
+            requestedQtyEl.textContent = 'Negotiable';
+        }
+
+        if (buyRequest && buyRequest.maxPrice) {
+            maxPriceEl.textContent = this.formatCurrency(buyRequest.maxPrice) + '/gal';
+        } else {
+            maxPriceEl.textContent = 'Negotiable';
+        }
 
         // Set your inventory and shadow price
         const yourInventory = this.inventory[chemical] || 0;
@@ -961,15 +979,34 @@ class MarketplaceApp {
         document.getElementById('respond-your-inventory').textContent = yourInventory.toLocaleString();
         document.getElementById('respond-shadow-price').textContent = this.formatCurrency(yourShadowPrice);
 
+        // Set range display
+        const rangeEl = document.getElementById('respond-range-display');
+        if (rangeEl) {
+            const range = this.ranges?.[chemical];
+            if (range) {
+                const dec = range.allowableDecrease || 0;
+                const inc = range.allowableIncrease || 0;
+                const incText = inc >= 9000 ? '∞' : inc.toFixed(0);
+                rangeEl.textContent = `[-${dec.toFixed(0)}, +${incText}] gal`;
+            } else {
+                rangeEl.textContent = 'N/A';
+            }
+        }
+
         // Set slider max to inventory
         document.getElementById('respond-quantity-slider').max = yourInventory;
         document.getElementById('respond-quantity').max = yourInventory;
 
         // Initialize with reasonable defaults
-        const defaultQty = Math.min(100, yourInventory);
+        // If buyer requested a specific qty, default to that (clamped by inventory)
+        const requestedQty = buyRequest?.quantity || 100;
+        const defaultQty = Math.min(requestedQty, yourInventory);
         document.getElementById('respond-quantity').value = defaultQty;
         document.getElementById('respond-quantity-slider').value = defaultQty;
-        document.getElementById('respond-price').value = Math.max(yourShadowPrice, 1).toFixed(2);
+        
+        // Default price: If buyer has max price, use that. Otherwise use shadow price + a bit of profit.
+        const defaultPrice = buyRequest?.maxPrice || (yourShadowPrice + 1.00);
+        document.getElementById('respond-price').value = defaultPrice.toFixed(2);
 
         // Update total
         this.updateRespondTotal();
@@ -3288,18 +3325,19 @@ class MarketplaceApp {
                         <div class="grid grid-cols-2 gap-4 mt-4">
                             <div class="bg-red-900/30 border border-red-500 rounded-lg p-4">
                                 <div class="text-red-400 font-bold mb-2">🔥 High Shadow Price</div>
-                                <p class="text-sm text-gray-300">You're using ALL of this chemical (binding constraint). You need MORE!</p>
+                                <p class="text-sm text-gray-300">You're using ALL of this chemical. You need MORE!</p>
                                 <p class="text-sm text-green-400 mt-2">→ <strong>BUY</strong> this chemical</p>
                             </div>
                             <div class="bg-blue-900/30 border border-blue-500 rounded-lg p-4">
                                 <div class="text-blue-400 font-bold mb-2">❄️ Zero Shadow Price</div>
-                                <p class="text-sm text-gray-300">You have EXCESS of this chemical (slack). It's sitting unused!</p>
+                                <p class="text-sm text-gray-300">You have EXCESS of this chemical. It's sitting unused!</p>
                                 <p class="text-sm text-yellow-400 mt-2">→ <strong>SELL</strong> this chemical</p>
                             </div>
                         </div>
+                        <p class="text-xs text-gray-400">Shadow prices are now shown prominently on each chemical card below.</p>
                     </div>
                 `,
-                elementToHighlight: '#shadow-price-bar' // Highlight top Shadow Price bar
+                elementToHighlight: 'chemical-card[chemical="C"]' // Highlight first chemical card
             },
 
             // Step 4: Your Chemical Analysis

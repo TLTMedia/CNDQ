@@ -359,21 +359,31 @@ if (!isAdmin()) {
         function updateUI() {
             if (!sessionState) return;
             
+            const isFinished = sessionState.gameFinished;
             const phaseEl = document.getElementById('current-phase');
-            if (sessionState.gameStopped) {
+            const startStopBtn = document.getElementById('start-stop-btn');
+
+            if (isFinished) {
+                phaseEl.textContent = 'FINALIZED (Finished)';
+                phaseEl.className = 'text-3xl font-bold capitalize text-purple-500';
+                
+                startStopBtn.disabled = true;
+                startStopBtn.textContent = 'Start Market (Closed)';
+                startStopBtn.className = 'flex-1 bg-gray-600 cursor-not-allowed px-6 py-3 rounded font-bold transition opacity-50';
+            } else if (sessionState.gameStopped) {
                 phaseEl.textContent = 'STOPPED';
                 phaseEl.className = 'text-3xl font-bold capitalize text-red-500';
                 
-                const btn = document.getElementById('start-stop-btn');
-                btn.textContent = 'Start Market';
-                btn.className = 'flex-1 bg-green-600 hover:bg-green-700 px-6 py-3 rounded font-bold transition';
+                startStopBtn.disabled = false;
+                startStopBtn.textContent = 'Start Market';
+                startStopBtn.className = 'flex-1 bg-green-600 hover:bg-green-700 px-6 py-3 rounded font-bold transition';
             } else {
                 phaseEl.textContent = 'Trading (Open)';
                 phaseEl.className = 'text-3xl font-bold capitalize text-green-400';
                 
-                const btn = document.getElementById('start-stop-btn');
-                btn.textContent = 'Stop Market';
-                btn.className = 'flex-1 bg-red-600 hover:bg-red-700 px-6 py-3 rounded font-bold transition';
+                startStopBtn.disabled = false;
+                startStopBtn.textContent = 'Stop Market';
+                startStopBtn.className = 'flex-1 bg-red-600 hover:bg-red-700 px-6 py-3 rounded font-bold transition';
             }
 
             const autoAdvanceCheckbox = document.getElementById('auto-advance');
@@ -398,6 +408,11 @@ if (!isAdmin()) {
 
         function updateTimer() {
             if (!sessionState) return;
+
+            if (sessionState.gameFinished) {
+                 document.getElementById('time-remaining').textContent = "FINISHED";
+                 return;
+            }
 
             if (sessionState.gameStopped) {
                  document.getElementById('time-remaining').textContent = "STOPPED";
@@ -442,6 +457,12 @@ if (!isAdmin()) {
         }
 
         async function finalizeGame() {
+            const confirmed = await showConfirm(
+                'FINALIZE GAME? This will manually stop the market and run final production for ALL teams immediately. Use this only to end the simulation manually.',
+                'Confirm Finalization'
+            );
+            if (!confirmed) return;
+
             try {
                 const response = await fetch(apiUrl('api/admin/session.php'), {
                     method: 'POST',

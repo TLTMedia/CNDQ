@@ -99,6 +99,7 @@ class ChemicalCard extends LitElement {
         chemical: { type: String },
         inventory: { type: Number },
         shadowPrice: { type: Number },
+        slack: { type: Number },
         ranges: { type: Object },
         buyListings: { type: Array },
         currentUserId: { type: String },
@@ -110,6 +111,7 @@ class ChemicalCard extends LitElement {
         this.chemical = '';
         this.inventory = 0;
         this.shadowPrice = 0;
+        this.slack = 0;
         this.ranges = { allowableIncrease: 0, allowableDecrease: 0 };
         this.buyListings = [];
         this.currentUserId = '';
@@ -118,10 +120,10 @@ class ChemicalCard extends LitElement {
 
     getChemicalColor(chemical) {
         const colors = {
-            C: { border: 'var(--color-chemical-c, #6eb5ff)', header: '#1d4ed8', symbol: '●' },
-            N: { border: 'var(--color-chemical-n, #d4a8fc)', header: '#7c3aed', symbol: '▲' },
-            D: { border: 'var(--color-chemical-d, #fcd34d)', header: '#b45309', symbol: '■' },
-            Q: { border: 'var(--color-chemical-q, #ffa0a0)', header: '#b91c1c', symbol: '◆' }
+            C: { border: 'var(--color-chemical-c, #6eb5ff)', header: '#1d4ed8', symbol: '●', bg: 'bg-blue-600' },
+            N: { border: 'var(--color-chemical-n, #d4a8fc)', header: '#7c3aed', symbol: '▲', bg: 'bg-purple-600' },
+            D: { border: 'var(--color-chemical-d, #fcd34d)', header: '#b45309', symbol: '■', bg: 'bg-yellow-600' },
+            Q: { border: 'var(--color-chemical-q, #ffa0a0)', header: '#b91c1c', symbol: '◆', bg: 'bg-red-600' }
         };
         return colors[chemical] || colors.C;
     }
@@ -160,16 +162,25 @@ class ChemicalCard extends LitElement {
                 </div>
                 <div class="content">
                     <div class="info-box">
-                        <div class="info-label">Your Inventory</div>
-                        <div id="inventory" class="info-value">${this.inventory.toLocaleString()}</div>
+                        <div class="flex justify-between items-center mb-2">
+                            <div>
+                                <div class="info-label">Your Inventory</div>
+                                <div id="inventory" class="info-value">${Math.round(this.inventory).toLocaleString()}</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="info-label">Total Slack</div>
+                                <div id="slack" class="info-value" style="font-size: 1.1rem; color: ${this.slack > 0 ? '#34d399' : '#9ca3af'}">${Math.round(this.slack).toLocaleString()}</div>
+                            </div>
+                        </div>
                         
-                        <div class="shadow-price" title="This is the internal value of 1 gallon to YOUR team. Buying below this or selling above this increases your potential profit.">
-                            Shadow Price: <span id="shadow-price">${this.formatCurrency(this.shadowPrice)}</span>
+                        <div class="mt-4 p-2 rounded text-center" style="background-color: ${header}; color: white; border: 1px solid rgba(255,255,255,0.2); box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);">
+                            <div class="text-[10px] uppercase font-bold tracking-wider opacity-80 mb-1">Shadow Price (Marginal Value)</div>
+                            <div id="shadow-price" class="text-2xl font-black">${this.formatCurrency(this.shadowPrice)}</div>
                         </div>
 
-                        <div style="font-size: 0.65rem; color: var(--color-text-secondary); margin-top: 0.5rem; line-height: 1.2;">
+                        <div style="font-size: 0.65rem; color: var(--color-text-secondary); margin-top: 0.8rem; line-height: 1.2;">
                             <div class="flex justify-between">
-                                <span>Range:</span>
+                                <span>Stability Range:</span>
                                 <span class="text-success font-bold">
                                     ${isRangeZero 
                                         ? 'N/A (Low Inv)' 
@@ -177,7 +188,7 @@ class ChemicalCard extends LitElement {
                                     }
                                 </span>
                             </div>
-                            <div style="opacity: 0.7; font-style: italic;">(Price stable within this range)</div>
+                            <div style="opacity: 0.7; font-style: italic; margin-top: 2px;">(Shadow price is accurate within this trade volume)</div>
                         </div>
                     </div>
 

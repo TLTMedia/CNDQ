@@ -21,112 +21,37 @@ You never touch the production server directly. You make changes locally, push t
 
 ---
 
-## Section 1: One-Time Setup (~25 minutes)
+## Section 1: One-Time Setup
 
-Open **Windows Terminal** (search for it in the Start menu) or **PowerShell** and run these commands one at a time. Each line is a single command — copy and paste it, then press Enter and wait for it to finish before continuing.
+Paul has emailed you a file called `setup.ps1`. This script does everything automatically: installs all required tools, downloads the project, and prepares it to run. It takes about 10 minutes.
 
-### Step 1: Install the Tools
+### Running the Setup Script
 
-Windows includes a built-in package installer called `winget`. Use it to install everything needed:
+1. Save `setup.ps1` somewhere easy to find, such as your Desktop or Downloads folder.
 
-```powershell
-winget install Git.Git
-```
-```powershell
-winget install PHP.PHP
-```
-```powershell
-winget install GitHub.cli
-```
-```powershell
-winget install Microsoft.VisualStudioCode
-```
-```powershell
-winget install OpenJS.NodeJS
-```
+2. Open the Start menu, search for **PowerShell**, right-click it, and choose **Run as Administrator**.
 
-After each install, if it asks for permission, type `Y` and press Enter.
+3. In the PowerShell window, paste this and press Enter:
+   ```powershell
+   Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+   ```
+   When asked, type `Y` and press Enter.
 
-### Step 2: Close and Reopen Your Terminal
+4. Navigate to where you saved the script. If it is in Downloads:
+   ```powershell
+   cd $HOME\Downloads
+   ```
 
-This loads the new tools into your session. The `winget` installs update your PATH, which only takes effect in new terminal windows.
+5. Run the script:
+   ```powershell
+   .\setup.ps1
+   ```
 
-Verify everything installed correctly:
+6. The script will pause once and ask you to log in to GitHub in your browser. Follow the prompts it displays — it will tell you exactly what to do at that step.
 
-```powershell
-git --version
-```
-```powershell
-php --version
-```
-```powershell
-gh --version
-```
-```powershell
-node --version
-```
+7. When the script finishes, it prints the address to open in your browser and the commands for your daily workflow. You are done.
 
-Each command should print a version number. If any prints "not recognized", close and reopen the terminal and try again.
-
-### Step 3: Connect to GitHub
-
-```powershell
-gh auth login
-```
-
-This walks you through a short authentication flow. When asked:
-- Choose **GitHub.com**
-- Choose **HTTPS**
-- Choose **Login with a web browser**
-- Copy the code it shows you, press Enter, and paste the code on the GitHub page that opens
-
-### Step 4: Choose Where to Store the Code
-
-Pick a folder for your work. This example uses `C:\Sites` — you can use any folder you prefer:
-
-```powershell
-mkdir C:\Sites
-```
-```powershell
-cd C:\Sites
-```
-
-### Step 5: Get the Code
-
-```powershell
-gh repo clone [REPO-NAME-HERE]
-```
-
-Replace `[REPO-NAME-HERE]` with the GitHub repository address Paul gives you (it will look like `username/CNDQ`).
-
-This downloads the entire project into `C:\Sites\CNDQ\`.
-
-### Step 6: Create the Database Folder
-
-The database folder is not included in the repository (it holds live game data). Create it once:
-
-```powershell
-mkdir C:\Sites\CNDQ\data
-```
-
-### Step 7: Create Your Local Configuration File
-
-```powershell
-copy C:\Sites\CNDQ\.env.example C:\Sites\CNDQ\.env
-```
-
-This creates your private settings file. The default settings work for local development — you do not need to edit it unless you want to log in as a specific test user.
-
-### Step 8: Install the JavaScript Test Tools
-
-```powershell
-cd C:\Sites\CNDQ
-```
-```powershell
-npm install
-```
-
-This installs Playwright (the automated test browser). It downloads about 100 MB and may take a few minutes.
+The setup script is also kept in the repository at `setup.ps1` for reference.
 
 ---
 

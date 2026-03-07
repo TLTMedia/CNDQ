@@ -1,0 +1,121 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Job 1: PHP syntax check
+  # Catches typos and syntax errors in every PHP file before they reach production.
+  # ─────────────────────────────────────────────────────────────────────────────
+  php-syntax:
+    name: PHP Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Check syntax of all PHP files
+        run: |
+          find . -name "*.php" \
+            -not -path "./vendor/*" \
+            -not -path "./node_modules/*" \
+            | xargs php -l
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Job 2: Application smoke test
+  # Starts the PHP built-in server and verifies the app loads without crashing.
+  # ─────────────────────────────────────────────────────────────────────────────
+  smoke-test:
+    name: Application Smoke Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo, pdo_sqlite, sqlite3
+
+      - name: Create required directories and config
+        run: |
+          mkdir -p data
+          cp .env.example .env
+
+      - name: Start PHP server (background)
+        run: php -S localhost:8000 &
+
+      - name: Wait for server to be ready
+        run: sleep 3
+
+      - name: Check app loads (public session status endpoint)
+        run: |
+          curl --fail --silent \
+            http://localhost:8000/CNDQ/api/session/status.php \
+            | grep -q "phase\|session\|error" \
+            && echo "App responded successfully" \
+            || (echo "App did not respond as expected" && exit 1)
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Job 3: Playwright end-to-end tests (runs on pull requests to main only)
+  # Full game simulation: login, trade, negotiate, verify outcomes.
+  # Takes ~3 minutes. Only runs before merging to protect the main branch.
+  # ─────────────────────────────────────────────────────────────────────────────
+  playwright:
+    name: Playwright Tests
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo, pdo_sqlite, sqlite3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Create required directories and config
+        run: |
+          mkdir -p data
+          cp .env.example .env
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install chromium --with-deps
+
+      - name: Start PHP server (background)
+        run: php -S localhost:8000 &
+
+      - name: Wait for server to be ready
+        run: sleep 3
+
+      - name: Run tests
+        run: node tests/run.js --baseUrl http://localhost:8000/CNDQ/ --headless
+        env:
+          CI: true
+
+      - name: Upload test results on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: |
+            tests/screenshots/
+            tests/*.json
+          retention-days: 7

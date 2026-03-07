@@ -504,14 +504,14 @@ If new strategy file not found:
   → Fall back to old strategies (BeginnerStrategy, NoviceStrategy, ExpertStrategy)
 ```
 
-This ensures backward compatibility with existing NPC systems.
+This ensures backward compatibility. The old strategy files (`BeginnerStrategy.php`, `NoviceStrategy.php`, `ExpertStrategy.php`) are still present in `lib/strategies/` as a safety fallback but are not the primary path. If you have confirmed the new strategies are stable, those three files can be deleted.
 
-### Migration Path
+### Migration Status
 
-1. **Phase 1**: Deploy new strategy files alongside old ones
-2. **Phase 2**: Update NPCManager to use NPCStrategyFactory
-3. **Phase 3**: Test with both old and new strategies
-4. **Phase 4**: Deprecate old strategies once validated
+- [x] Phase 1: New strategy files deployed alongside old ones
+- [x] Phase 2: NPCManager updated to use NPCStrategyFactory
+- [x] Phase 3: Tested with both old and new strategies
+- [ ] Phase 4: Delete legacy fallback files once fully validated (`BeginnerStrategy.php`, `NoviceStrategy.php`, `ExpertStrategy.php`)
 
 ---
 

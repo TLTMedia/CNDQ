@@ -27,7 +27,7 @@ The CNDQ API is fully documented using OpenAPI 3.0 (Swagger).
 ## Other Documentation
 
 - **[Database Guide](DATA.md)** - Database structure and initialization
-- **[Migration Guide](../SQLITE_MIGRATION.md)** - SQLite migration documentation
+- **[Professor Setup Guide](PROFESSOR-SETUP.md)** - Zero-to-running guide for Windows, no GUI installers, screen-reader friendly
 
 ## For Developers
 
@@ -47,7 +47,7 @@ All endpoints are under `/api/`:
 /api/marketplace/offers      - View marketplace
 /api/offers/create           - Create offers
 /api/negotiations/initiate   - Start negotiations
-/api/advertisements/post     - Post ads
+/api/listings/post           - Post buy listings
 ... and more
 ```
 

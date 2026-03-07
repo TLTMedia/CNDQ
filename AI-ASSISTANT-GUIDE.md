@@ -54,29 +54,77 @@ CNDQ/
 ├── admin/
 │   └── index.php            # Admin control panel (session management)
 ├── api/
-│   └── 404.php              # API endpoints (RESTful API for game actions)
+│   ├── 404.php              # Catch-all for unknown API routes
+│   ├── listings/            # Buy request endpoints
+│   │   ├── list.php         # GET  - All active buy listings
+│   │   ├── my-listings.php  # GET  - Current user's listings
+│   │   ├── post.php         # POST - Post a buy request
+│   │   └── cancel.php       # POST - Cancel a buy request
+│   ├── marketplace/
+│   │   └── offers.php       # GET  - All active offers
+│   ├── negotiations/
+│   │   ├── list.php, initiate.php, accept.php, counter.php, reject.php, react.php
+│   ├── production/
+│   │   ├── results.php      # GET  - Production results
+│   │   └── shadow-prices.php # POST - Recalculate shadow prices
+│   ├── session/
+│   │   ├── status.php       # GET  - Session status (public)
+│   │   └── restart.php      # POST - Restart session
+│   ├── leaderboard/standings.php, notifications/list.php
+│   ├── team/profile.php, team/settings.php
+│   └── admin/
+│       ├── session.php, reset-game.php, list-teams.php
+│       └── npc/
+│           ├── list.php, create.php, delete.php, toggle.php
+│           ├── toggle-system.php, set-variability.php
+│           ├── trigger-cycle.php, update-delays.php
 ├── lib/                     # PHP backend classes
 │   ├── Database.php         # SQLite database abstraction
 │   ├── TeamStorage.php      # Team data management (funds, inventory)
+│   ├── SystemStorage.php    # System-wide settings storage
 │   ├── SessionManager.php   # Game session lifecycle
 │   ├── LPSolver.php         # Linear programming solver (production optimization)
+│   ├── ListingManager.php   # Buy listing/advertisement management
 │   ├── NegotiationManager.php # Trading/haggling system
+│   ├── TradeExecutor.php    # Executes confirmed trades (inventory/fund updates)
 │   ├── NPCManager.php       # AI player management
 │   ├── NPCStrategyFactory.php # NPC strategy selector
+│   ├── NPCTradingStrategy.php # Strategy interface
+│   ├── GlobalAggregator.php # Cross-team market aggregation
+│   ├── MarketplaceAggregator.php # Marketplace event aggregation
+│   ├── AdminAuth.php        # Admin authentication
+│   ├── TeamNameGenerator.php # Random NPC name generator
 │   └── strategies/          # NPC trading strategies
 │       ├── ShadowPriceArbitrageStrategy.php  # Beginner
 │       ├── BottleneckEliminationStrategy.php # Novice
 │       └── RecipeBalancingStrategy.php       # Expert
 ├── js/                      # Frontend JavaScript
-│   ├── marketplace.js       # Main UI logic
+│   ├── marketplace.js       # Main UI orchestrator
 │   ├── api.js              # API client wrapper
 │   ├── solver.js           # Client-side LP solver (glpk.js)
-│   └── config.js           # Game constants
-├── css/                     # Styling
-│   └── styles.css          # Main stylesheet (uses UnoCSS JIT)
-├── tests/                   # Puppeteer integration tests
-│   ├── run-tests.js        # Main test runner
-│   └── haggle-test.js      # Negotiation flow tests
+│   ├── config.js           # Game constants
+│   ├── components/          # Lit web components
+│   │   ├── chemical-card.js      # Chemical inventory card
+│   │   ├── buy-request-card.js   # Pending buy request card
+│   │   ├── listing-item.js       # Buy listing item (was advertisement-item.js)
+│   │   ├── negotiation-card.js   # Active negotiation card
+│   │   ├── offer-bubble.js       # Offer message bubble
+│   │   ├── ModalManager.js       # Reusable modal dialog
+│   │   ├── leaderboard-modal.js  # Leaderboard overlay
+│   │   ├── notification-manager.js # Toast/notification system
+│   │   ├── report-viewer.js      # End-of-game report viewer
+│   │   └── shared-styles.js      # Shared CSS-in-JS styles
+│   └── modules/             # Non-component JS modules
+│       ├── StateManager.js       # App state and polling coordination
+│       ├── PollingService.js     # Polling loop for real-time updates
+│       ├── NotificationService.js # Notification data fetching
+│       ├── FinancialRenderer.js  # Financial display helpers
+│       └── SoundService.js       # Audio feedback (earcons)
+├── css/
+│   └── styles.css          # Main stylesheet
+├── tests/                   # Puppeteer/Playwright integration tests
+│   ├── run.js              # Main test runner (npm test)
+│   └── test.js             # Dual-playability test suite
 ├── data/                    # Runtime data directory
 │   └── cndq.db             # SQLite database (event-sourced)
 ├── topology.md              # Development environment setup
@@ -297,11 +345,17 @@ $npcMgr->runAllNPCs(); // Execute one trading cycle for all NPCs
 ### Core Frontend Files
 
 #### `js/marketplace.js`
-Main UI controller:
-- Initializes app
+Main UI orchestrator:
+- Initializes app and coordinates modules
 - Handles UI events (button clicks, form submissions)
-- Real-time updates via polling
-- Manages modals/overlays
+- Real-time updates via `PollingService`
+- Manages modals via `ModalManager`
+
+#### `js/modules/StateManager.js`
+Centralizes app state (listings, negotiations, team data) and coordinates polling.
+
+#### `js/modules/SoundService.js`
+Web Audio API earcons for trade events (success, warning, alert).
 
 #### `js/api.js`
 API client wrapper:
@@ -441,8 +495,8 @@ See [NPC-STRATEGIES.md](NPC-STRATEGIES.md) for strategy documentation.
 ### Running Tests
 ```bash
 cd CNDQ
-npm install  # Install Puppeteer (first time only)
-node tests/run-tests.js
+npm install  # Install Puppeteer/Playwright (first time only)
+npm test     # Runs tests/run.js → tests/test.js
 ```
 
 ### Test Suite Coverage
@@ -620,13 +674,23 @@ migration_log        -- Database migration history
 
 ### API Endpoints
 ```
-POST /api/admin/session/start        -- Start game session
-POST /api/admin/npc/create           -- Create NPC players
-GET  /api/market/offers              -- List all buy requests
-POST /api/negotiation/create         -- Start negotiation
-POST /api/negotiation/respond        -- Counter-offer/accept/reject
-GET  /api/team/status                -- Get team data
-POST /api/production/recalculate     -- Update shadow prices
+POST /api/admin/session.php              -- Control game session (start/stop)
+POST /api/session/restart.php            -- Restart session
+POST /api/admin/npc/create.php           -- Create NPC players
+POST /api/admin/npc/trigger-cycle.php    -- Force NPC trading cycle
+POST /api/admin/npc/set-variability.php  -- Set global NPC variability
+GET  /api/marketplace/offers.php         -- All active offers
+GET  /api/listings/list.php              -- All active buy listings
+POST /api/listings/post.php              -- Post a buy listing
+POST /api/listings/cancel.php            -- Cancel a buy listing
+POST /api/negotiations/initiate.php      -- Start negotiation
+POST /api/negotiations/counter.php       -- Counter-offer
+POST /api/negotiations/accept.php        -- Accept offer
+POST /api/negotiations/reject.php        -- Reject negotiation
+GET  /api/team/profile.php               -- Get team data
+GET  /api/team/settings.php              -- Get/update team settings
+POST /api/production/shadow-prices.php   -- Recalculate shadow prices
+GET  /api/leaderboard/standings.php      -- Team rankings
 ```
 
 ### Chemical Colors (UI)

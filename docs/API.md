@@ -26,7 +26,7 @@ etc.
 
 Most API endpoints require authentication via session cookies (except `/api/session/status`).
 
-Users must be logged in through the Google OAuth system. The session cookie `PHPSESSID` is automatically managed by the browser.
+Users must be logged in through **Shibboleth** (university SSO). In local development, the `dev.php` page bypasses authentication for testing. The session cookie `PHPSESSID` is automatically managed by the browser.
 
 ## Game Flow
 
@@ -101,11 +101,12 @@ Public messages to attract trading partners:
 - `POST /api/negotiations/reject` - Reject negotiation
 - `POST /api/negotiations/react` - Add emoji reaction
 
-### Advertisements
+### Buy Listings (Advertisements)
 
-- `GET /api/advertisements/list` - View all ads
-- `GET /api/advertisements/my-ads` - View your ads
-- `POST /api/advertisements/post` - Post an advertisement
+- `GET /api/listings/list` - View all active buy listings
+- `GET /api/listings/my-listings` - View your own buy listings
+- `POST /api/listings/post` - Post a buy listing
+- `POST /api/listings/cancel` - Cancel a buy listing
 
 ### Game Data
 

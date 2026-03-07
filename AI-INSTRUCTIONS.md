@@ -12,7 +12,7 @@ For codebase structure, key concepts, and architecture, also direct the AI to:
 
 ## The Test Suite Is the Source of Truth
 
-The Playwright test suite in `tests/` simulates a real student using the game end-to-end. It has been the primary tool for catching regressions introduced by code changes, including AI-generated ones. Treat it accordingly.
+The Playwright test suite in `tests/playwright/` simulates a real student using the game end-to-end. It has been the primary tool for catching regressions introduced by code changes, including AI-generated ones. Treat it accordingly.
 
 ### The Cardinal Rule: Fix the Code, Not the Test
 
@@ -65,8 +65,24 @@ php -S localhost:8000 &
 sleep 2
 
 # Run the full test suite
-node tests/run.js --baseUrl http://localhost:8000/CNDQ/ --headless
+npx playwright test
 ```
+
+The base URL defaults to `http://localhost:8000/CNDQ/`. To override:
+
+```bash
+BASE_URL=http://cndq.test/CNDQ/ npx playwright test
+```
+
+To run a single spec by name:
+
+```bash
+npx playwright test health    # API health checks
+npx playwright test trade     # deterministic trade balance checks
+npx playwright test ui-smoke  # browser smoke tests
+```
+
+The test entry point is `playwright.config.js` in the project root. Spec files live in `tests/playwright/` and follow the `*.spec.js` naming convention.
 
 After running, report:
 - How many passed and how many failed

@@ -72,7 +72,7 @@ Write-Info "Installing Git (version control)..."
 winget install --id Git.Git --silent --accept-package-agreements --accept-source-agreements
 
 Write-Info "Installing PHP (runs the web application)..."
-winget install --id PHP.PHP --silent --accept-package-agreements --accept-source-agreements
+winget install --id PHP.PHP.8.2 --silent --accept-package-agreements --accept-source-agreements
 
 Write-Info "Installing GitHub CLI (for connecting to GitHub)..."
 winget install --id GitHub.cli --silent --accept-package-agreements --accept-source-agreements
@@ -91,9 +91,45 @@ Write-Step 2 "Refreshing PATH"
 Refresh-Path
 Write-Ok "PATH updated."
 
-# --- Step 3: Verify installations --------------------------------------------
+# --- Step 3: Configure PHP extensions ----------------------------------------
+#
+# winget installs PHP but ships only template ini files. SQLite support
+# (pdo_sqlite) is disabled by default and must be explicitly enabled.
+# Without this step every database call returns "could not find driver".
 
-Write-Step 3 "Verifying installations"
+Write-Step 3 "Configuring PHP extensions (SQLite support)"
+$phpExe = (Get-Command php -ErrorAction SilentlyContinue).Source
+if ($phpExe) {
+    $phpDir    = Split-Path $phpExe
+    $phpIni    = Join-Path $phpDir "php.ini"
+    $phpIniDev = Join-Path $phpDir "php.ini-development"
+
+    if (-not (Test-Path $phpIni)) {
+        if (Test-Path $phpIniDev) {
+            Copy-Item $phpIniDev $phpIni
+            Write-Info "Created php.ini from php.ini-development"
+        } else {
+            Write-Fail "php.ini-development not found — cannot configure extensions."
+        }
+    }
+
+    if (Test-Path $phpIni) {
+        $ini = Get-Content $phpIni -Raw
+        $ini = $ini -replace ';extension_dir = "ext"',  'extension_dir = "ext"'
+        $ini = $ini -replace ';extension=pdo_sqlite',   'extension=pdo_sqlite'
+        $ini = $ini -replace ';extension=sqlite3',      'extension=sqlite3'
+        Set-Content $phpIni $ini -NoNewline
+        Write-Ok "SQLite extensions enabled in php.ini."
+    }
+
+
+} else {
+    Write-Info "PHP not found in PATH yet — close and reopen PowerShell as Administrator, then run the script again."
+}
+
+# --- Step 4: Verify installations --------------------------------------------
+
+Write-Step 4 "Verifying installations"
 $allOk = $true
 
 foreach ($tool in @("git", "php", "gh", "code", "node", "npm")) {
@@ -118,7 +154,7 @@ if (-not $allOk) {
 
 # --- Step 4: GitHub login ----------------------------------------------------
 
-Write-Step 4 "Connecting to GitHub"
+Write-Step 5 "Connecting to GitHub"
 Write-Host ""
 Write-Host "  You will now be asked to log in to GitHub."
 Write-Host "  The steps are:"
@@ -142,7 +178,7 @@ Write-Ok "GitHub login successful."
 
 # --- Step 5: Create project folder -------------------------------------------
 
-Write-Step 5 "Creating project folder at $INSTALL_DIR"
+Write-Step 6 "Creating project folder at $INSTALL_DIR"
 if (-not (Test-Path $INSTALL_DIR)) {
     New-Item -ItemType Directory -Path $INSTALL_DIR | Out-Null
     Write-Ok "Created $INSTALL_DIR"
@@ -152,7 +188,7 @@ if (-not (Test-Path $INSTALL_DIR)) {
 
 # --- Step 6: Clone the repository --------------------------------------------
 
-Write-Step 6 "Downloading the CNDQ project from GitHub"
+Write-Step 7 "Downloading the CNDQ project from GitHub"
 $projectPath = Join-Path $INSTALL_DIR "CNDQ"
 
 if (Test-Path $projectPath) {
@@ -173,7 +209,7 @@ Set-Location $projectPath
 
 # --- Step 7: Create database folder ------------------------------------------
 
-Write-Step 7 "Creating database folder"
+Write-Step 8 "Creating database folder"
 $dataPath = Join-Path $projectPath "data"
 if (-not (Test-Path $dataPath)) {
     New-Item -ItemType Directory -Path $dataPath | Out-Null
@@ -184,7 +220,7 @@ if (-not (Test-Path $dataPath)) {
 
 # --- Step 8: Create local configuration file ---------------------------------
 
-Write-Step 8 "Creating local configuration file"
+Write-Step 9 "Creating local configuration file"
 $envFile    = Join-Path $projectPath ".env"
 $envExample = Join-Path $projectPath ".env.example"
 
@@ -197,7 +233,7 @@ if (-not (Test-Path $envFile)) {
 
 # --- Step 9: Install test tools ----------------------------------------------
 
-Write-Step 9 "Installing automated test tools (Playwright)"
+Write-Step 10 "Installing automated test tools (Playwright)"
 Write-Info "This downloads about 100MB and may take a few minutes..."
 npm install
 
@@ -220,8 +256,8 @@ Write-Host ""
 Write-Host "  To start the application:"
 Write-Host "    1. Open a new PowerShell window (does not need to be Administrator)"
 Write-Host "    2. Run: cd C:\Sites"
-Write-Host "    3. Run: php -S localhost:8000"
-Write-Host "    4. Open your browser and go to: http://localhost:8000/CNDQ/"
+Write-Host "    3. Run: php -S 127.0.0.1:8000"
+Write-Host "    4. Open your browser and go to: http://127.0.0.1:8000/CNDQ/"
 Write-Host ""
 Write-Host "  To open the project in VS Code:"
 Write-Host "    cd C:\Sites\CNDQ"

@@ -106,9 +106,10 @@ jobs:
         run: sleep 3
 
       - name: Run tests
-        run: node tests/run.js --baseUrl http://localhost:8000/CNDQ/ --headless
+        run: npx playwright test
         env:
           CI: true
+          BASE_URL: http://localhost:8000/CNDQ/
 
       - name: Upload test results on failure
         if: failure()
@@ -116,6 +117,6 @@ jobs:
         with:
           name: test-results
           path: |
+            tests/playwright-report/
             tests/screenshots/
-            tests/*.json
           retention-days: 7

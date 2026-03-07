@@ -3,14 +3,9 @@
   "version": "1.0.0",
   "description": "Automated testing for CNDQ Chemical Trading Game",
   "scripts": {
-    "test": "node tests/test.js",
-    "test:game": "node tests/test.js",
-    "test:components": "node tests/run.js --test dual --ui-only",
-    "test:a11y": "node tests/test.js --a11y --ui-only",
-    "test:all": "node tests/run.js --test all",
-    "test:headless": "node tests/run.js --test all --headless",
-    "simulate": "node tests/test.js --keep-open",
-    "simulate:continue": "node tests/test.js --keep-open --skip-reset"
+    "test": "npx playwright test",
+    "test:headed": "npx playwright test --headed",
+    "test:report": "npx playwright show-report tests/playwright-report"
   },
   "dependencies": {
     "lit": "^3.3.2",
@@ -18,6 +13,7 @@
   },
   "devDependencies": {
     "@axe-core/puppeteer": "^4.11.0",
+    "@playwright/test": "^1.57.0",
     "axe-core": "^4.11.0",
     "lighthouse": "^13.0.1",
     "playwright": "^1.57.0"

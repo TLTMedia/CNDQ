@@ -36,6 +36,8 @@
 
 const fs = require('fs');
 const path = require('path');
+const http = require('http');
+const { spawn } = require('child_process');
 
 // Available tests
 const AVAILABLE_TESTS = {
@@ -238,7 +240,7 @@ function loadConfig(configPath, overrides) {
 
     // Apply defaults
     config = {
-        baseUrl: 'http://cndq.test/CNDQ/',
+        baseUrl: 'http://localhost:8000/CNDQ/',
         adminUser: 'admin@stonybrook.edu',
         npcCount: 6,
         rpcCount: 6,
@@ -480,6 +482,40 @@ function generateReport(results, config, args) {
 }
 
 /**
+ * Check if the PHP server is already responding on port 8000.
+ */
+function isServerRunning(baseUrl) {
+    return new Promise(resolve => {
+        const url = baseUrl + 'api/session/status.php';
+        http.get(url, res => {
+            res.resume();
+            resolve(true);
+        }).on('error', () => resolve(false));
+    });
+}
+
+/**
+ * Start `php -S localhost:8000 -t ..` and wait until it responds.
+ * Returns the child process so the caller can kill it when done.
+ */
+async function startServer() {
+    const serverRoot = path.resolve(__dirname, '../..');
+    const proc = spawn('php', ['-S', 'localhost:8000', '-t', serverRoot], {
+        stdio: 'ignore',
+        detached: false
+    });
+
+    // Wait up to 10s for the server to respond
+    const deadline = Date.now() + 10000;
+    while (Date.now() < deadline) {
+        await new Promise(r => setTimeout(r, 300));
+        if (await isServerRunning('http://localhost:8000/CNDQ/')) return proc;
+    }
+    proc.kill();
+    throw new Error('PHP server did not start within 10 seconds');
+}
+
+/**
  * Main entry point
  */
 async function main() {
@@ -494,6 +530,14 @@ async function main() {
         console.log(`📊 Report: ${args.reportPath}`);
         if (args.background) console.log('🔇 Running in background mode');
         console.log('='.repeat(80));
+    }
+
+    // Start PHP server if not already running
+    let serverProc = null;
+    if (!(await isServerRunning(config.baseUrl))) {
+        if (!args.quiet) console.log('🌐 Starting PHP server on localhost:8000...');
+        serverProc = await startServer();
+        if (!args.quiet) console.log('   ✅ Server ready\n');
     }
 
     const results = [];
@@ -542,6 +586,8 @@ async function main() {
 
     const allPassed = report.summary.failed === 0;
     console.log(allPassed ? '\n🎉 All tests passed!' : '\n⚠️  Some tests failed');
+
+    if (serverProc) serverProc.kill();
 
     process.exit(allPassed ? 0 : 1);
 }

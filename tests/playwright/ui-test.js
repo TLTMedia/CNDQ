@@ -36,7 +36,10 @@ class UIPlayabilityTest {
             // 2. Play Game
             await this.playMarketplace();
 
-            // 3. Finish
+            // 3. UI Negotiation Flow (RPC → RPC through real browser)
+            await this.playerNegotiationFlow();
+
+            // 4. Finish
             await this.endGame();
 
             this.printResults();
@@ -235,6 +238,110 @@ class UIPlayabilityTest {
             console.log(`         📸 Error screenshot saved: ${errorPath}`);
         } finally {
             await page.close();
+        }
+    }
+
+    /**
+     * Full RPC-to-RPC negotiation cycle through the UI.
+     *
+     * Player 1 has already posted a buy listing during playMarketplace().
+     * Player 2 finds it, clicks "Sell to", fills the respond modal, and submits.
+     * Player 1 then finds the resulting "Your Turn" negotiation card and accepts it.
+     *
+     * This verifies: listing-item → respond modal → negotiation card → accept flow.
+     * All failures are warnings (non-fatal) so they don't block endGame.
+     */
+    async playerNegotiationFlow() {
+        console.log(`\n🤝 UI NEGOTIATION FLOW (RPC → RPC)`);
+
+        const buyerEmail  = CONFIG.testUsers[0]; // test_mail1 — already posted a buy listing
+        const sellerEmail = CONFIG.testUsers[1]; // test_mail2 — will respond to it
+
+        // ── Step 1: Seller responds to buyer's listing via the respond modal ──
+        console.log(`   📋 ${sellerEmail.split('@')[0]}: clicking "Sell to" on buy listing...`);
+        const sellerPage = await this.createPlayerSession(sellerEmail);
+        let negotiationInitiated = false;
+
+        try {
+            await sellerPage.waitForFunction(
+                () => window.app?.profile?.currentFunds !== undefined,
+                { timeout: 15000 }
+            );
+
+            // listing-item uses Shadow DOM — pierce it via evaluate to click "Sell to"
+            const clicked = await sellerPage.evaluate(() => {
+                for (const item of document.querySelectorAll('listing-item')) {
+                    if (item.hasAttribute('ismylisting') || item.hasAttribute('is-my-listing')) continue;
+                    const btn = item.shadowRoot?.querySelector('button.btn:not(:disabled)');
+                    if (btn) { btn.click(); return true; }
+                }
+                return false;
+            });
+
+            if (!clicked) {
+                console.log('      ⚠️  No sellable buy listings visible — skipping negotiation UI flow');
+            } else {
+                // Fill the respond modal
+                await sellerPage.waitForSelector('#respond-modal:not(.hidden)', { timeout: 5000 });
+                await sellerPage.evaluate(() => {
+                    document.getElementById('respond-quantity').value = '50';
+                    document.getElementById('respond-price').value = '5.00';
+                    document.getElementById('respond-quantity').dispatchEvent(new Event('input'));
+                    document.getElementById('respond-price').dispatchEvent(new Event('input'));
+                });
+                await sellerPage.click('#respond-submit-btn');
+                await sellerPage.waitForSelector('#respond-modal.hidden', { timeout: 8000 });
+                console.log('      ✅ Seller submitted offer via respond modal');
+                this.results.uiActions++;
+                negotiationInitiated = true;
+            }
+        } catch (e) {
+            console.log(`      ⚠️  Respond modal: ${e.message}`);
+            await sellerPage.screenshot({ path: 'error-respond-modal.png' });
+        } finally {
+            await sellerPage.close();
+        }
+
+        if (!negotiationInitiated) return;
+
+        // ── Step 2: Buyer accepts the offer through the negotiation card UI ──
+        console.log(`   💬 ${buyerEmail.split('@')[0]}: accepting offer via negotiation card...`);
+        const buyerPage = await this.createPlayerSession(buyerEmail);
+
+        try {
+            await buyerPage.waitForFunction(
+                () => window.app?.profile?.currentFunds !== undefined,
+                { timeout: 15000 }
+            );
+
+            // negotiation-card uses light DOM — find the one showing "Your Turn"
+            const negId = await buyerPage.evaluate(() => {
+                for (const card of document.querySelectorAll('negotiation-card')) {
+                    const wrapper = card.querySelector('.card-wrapper');
+                    if (wrapper?.textContent?.includes('Your Turn')) {
+                        return card.getAttribute('negotiation-id');
+                    }
+                }
+                return null;
+            });
+
+            if (!negId) {
+                console.log('      ⚠️  No "Your Turn" negotiation card found for buyer');
+            } else {
+                await buyerPage.click(`negotiation-card[negotiation-id="${negId}"]`);
+                await buyerPage.waitForSelector('#negotiation-detail-view:not(.hidden)', { timeout: 5000 });
+                await buyerPage.click('#accept-offer-btn');
+                await buyerPage.waitForSelector('#confirm-dialog:not(.hidden)', { timeout: 5000 });
+                await buyerPage.click('#confirm-ok');
+                await buyerPage.waitForSelector('#negotiation-list-view:not(.hidden)', { timeout: 10000 });
+                console.log('      ✅ Trade completed — full RPC negotiation cycle verified through UI');
+                this.results.uiActions++;
+            }
+        } catch (e) {
+            console.log(`      ⚠️  Accept offer UI: ${e.message}`);
+            await buyerPage.screenshot({ path: 'error-accept-offer.png' });
+        } finally {
+            await buyerPage.close();
         }
     }
 

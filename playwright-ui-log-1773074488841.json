@@ -1,0 +1,5565 @@
+[
+  {
+    "timestamp": "2026-03-09T16:41:21.736Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/session.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": {
+        "currentSession": 1,
+        "phase": "TRADING",
+        "autoAdvance": false,
+        "productionDuration": 0,
+        "tradingDuration": 600,
+        "timeRemaining": 574,
+        "lastTick": 1773074481,
+        "phaseStartedAt": 1773074481,
+        "npcLastRun": 1773074467,
+        "productionRun": null,
+        "initialProductionRun": null,
+        "productionJustRan": 1773074472,
+        "gameStopped": true,
+        "gameFinished": true
+      },
+      "recentTrades": [
+        {
+          "eventId": "join_1773074481_4be3",
+          "teamName": "Bold Lynx",
+          "joinedAt": 1773074481.241861,
+          "type": "join"
+        },
+        {
+          "transactionId": "trade_1773074470_8ce2f884",
+          "chemical": "N",
+          "quantity": 50,
+          "pricePerGallon": 0,
+          "totalAmount": 0,
+          "sellerId": "test_mail3@stonybrook.edu",
+          "sellerName": "Lucky Hawk",
+          "sellerInvBefore": 1249,
+          "sellerInvAfter": 1199,
+          "buyerId": "test_mail1@stonybrook.edu",
+          "buyerName": "Crafty Otter",
+          "buyerInvBefore": 1427,
+          "buyerInvAfter": 1477,
+          "timestamp": 1773074470.738552,
+          "heat": {
+            "total": 0,
+            "isHot": false,
+            "sellerGain": 0,
+            "buyerGain": 0
+          }
+        },
+        {
+          "transactionId": "trade_1773074470_855651bf",
+          "chemical": "N",
+          "quantity": 50,
+          "pricePerGallon": 0,
+          "totalAmount": 0,
+          "sellerId": "test_mail2@stonybrook.edu",
+          "sellerName": "Daring Rhino",
+          "sellerInvBefore": 1690,
+          "sellerInvAfter": 1640,
+          "buyerId": "test_mail1@stonybrook.edu",
+          "buyerName": "Crafty Otter",
+          "buyerInvBefore": 1377,
+          "buyerInvAfter": 1427,
+          "timestamp": 1773074470.233996,
+          "heat": {
+            "total": 0,
+            "isHot": false,
+            "sellerGain": 0,
+            "buyerGain": 0
+          }
+        },
+        {
+          "transactionId": "trade_1773074463_f27282c3",
+          "chemical": "D",
+          "quantity": 50,
+          "pricePerGallon": 0,
+          "totalAmount": 0,
+          "sellerId": "test_mail2@stonybrook.edu",
+          "sellerName": "Daring Rhino",
+          "sellerInvBefore": 1584,
+          "sellerInvAfter": 1534,
+          "buyerId": "test_mail3@stonybrook.edu",
+          "buyerName": "Lucky Hawk",
+          "buyerInvBefore": 738,
+          "buyerInvAfter": 788,
+          "timestamp": 1773074463.158426,
+          "heat": {
+            "total": 428.5,
+            "isHot": false,
+            "sellerGain": 0,
+            "buyerGain": 8.57
+          }
+        },
+        {
+          "transactionId": "trade_1773074461_67dd5a6c",
+          "chemical": "N",
+          "quantity": 50,
+          "pricePerGallon": 0,
+          "totalAmount": 0,
+          "sellerId": "test_mail3@stonybrook.edu",
+          "sellerName": "Lucky Hawk",
+          "sellerInvBefore": 1299,
+          "sellerInvAfter": 1249,
+          "buyerId": "test_mail1@stonybrook.edu",
+          "buyerName": "Crafty Otter",
+          "buyerInvBefore": 1327,
+          "buyerInvAfter": 1377,
+          "timestamp": 1773074461.935428,
+          "heat": {
+            "total": 0,
+            "isHot": false,
+            "sellerGain": 0,
+            "buyerGain": 0
+          }
+        },
+        {
+          "transactionId": "trade_1773074461_2e6bd16e",
+          "chemical": "N",
+          "quantity": 50,
+          "pricePerGallon": 0,
+          "totalAmount": 0,
+          "sellerId": "test_mail2@stonybrook.edu",
+          "sellerName": "Daring Rhino",
+          "sellerInvBefore": 1740,
+          "sellerInvAfter": 1690,
+          "buyerId": "test_mail1@stonybrook.edu",
+          "buyerName": "Crafty Otter",
+          "buyerInvBefore": 1277,
+          "buyerInvAfter": 1327,
+          "timestamp": 1773074461.444901,
+          "heat": {
+            "total": 0,
+            "isHot": false,
+            "sellerGain": 0,
+            "buyerGain": 0
+          }
+        },
+        {
+          "transactionId": "trade_1773074454_2c3c066e",
+          "chemical": "C",
+          "quantity": 50,
+          "pricePerGallon": 0.5415,
+          "totalAmount": 27.075,
+          "sellerId": "test_mail3@stonybrook.edu",
+          "sellerName": "Lucky Hawk",
+          "sellerInvBefore": 1363,
+          "sellerInvAfter": 1313,
+          "buyerId": "test_mail1@stonybrook.edu",
+          "buyerName": "Crafty Otter",
+          "buyerInvBefore": 1523,
+          "buyerInvAfter": 1573,
+          "timestamp": 1773074454.412144,
+          "heat": {
+            "total": 0,
+            "isHot": false,
+            "sellerGain": -0.02849999999999997,
+            "buyerGain": 0.02849999999999997
+          }
+        },
+        {
+          "transactionId": "trade_1773074453_e39a1e8a",
+          "chemical": "N",
+          "quantity": 50,
+          "pricePerGallon": 0,
+          "totalAmount": 0,
+          "sellerId": "test_mail3@stonybrook.edu",
+          "sellerName": "Lucky Hawk",
+          "sellerInvBefore": 1349,
+          "sellerInvAfter": 1299,
+          "buyerId": "test_mail1@stonybrook.edu",
+          "buyerName": "Crafty Otter",
+          "buyerInvBefore": 1227,
+          "buyerInvAfter": 1277,
+          "timestamp": 1773074453.410713,
+          "heat": {
+            "total": 0,
+            "isHot": false,
+            "sellerGain": 0,
+            "buyerGain": 0
+          }
+        },
+        {
+          "transactionId": "trade_1773074452_b424dfbf",
+          "chemical": "N",
+          "quantity": 50,
+          "pricePerGallon": 0,
+          "totalAmount": 0,
+          "sellerId": "test_mail2@stonybrook.edu",
+          "sellerName": "Daring Rhino",
+          "sellerInvBefore": 1790,
+          "sellerInvAfter": 1740,
+          "buyerId": "test_mail1@stonybrook.edu",
+          "buyerName": "Crafty Otter",
+          "buyerInvBefore": 1177,
+          "buyerInvAfter": 1227,
+          "timestamp": 1773074452.696268,
+          "heat": {
+            "total": 0,
+            "isHot": false,
+            "sellerGain": 0,
+            "buyerGain": 0
+          }
+        },
+        {
+          "eventId": "join_1773074445_0838",
+          "teamName": "Lucky Hawk",
+          "joinedAt": 1773074445.527909,
+          "type": "join"
+        },
+        {
+          "transactionId": "trade_1773074444_c7da64b0",
+          "chemical": "N",
+          "quantity": 50,
+          "pricePerGallon": 4.5,
+          "totalAmount": 225,
+          "sellerId": "test_mail2@stonybrook.edu",
+          "sellerName": "Daring Rhino",
+          "sellerInvBefore": 1840,
+          "sellerInvAfter": 1790,
+          "buyerId": "test_mail1@stonybrook.edu",
+          "buyerName": "Crafty Otter",
+          "buyerInvBefore": 1127,
+          "buyerInvAfter": 1177,
+          "timestamp": 1773074444.476816,
+          "heat": {
+            "total": 0,
+            "isHot": false,
+            "sellerGain": 4.5,
+            "buyerGain": -4.5
+          }
+        },
+        {
+          "eventId": "join_1773074443_f40f",
+          "teamName": "Daring Rhino",
+          "joinedAt": 1773074443.864876,
+          "type": "join"
+        },
+        {
+          "eventId": "join_1773074443_40ec",
+          "teamName": "Crafty Otter",
+          "joinedAt": 1773074443.497044,
+          "type": "join"
+        },
+        {
+          "eventId": "join_1773074443_3865",
+          "teamName": "Focused Walrus",
+          "joinedAt": 1773074443.197629,
+          "type": "join"
+        },
+        {
+          "eventId": "join_1773074443_0dfc",
+          "teamName": "Focused Phoenix",
+          "joinedAt": 1773074443.090843,
+          "type": "join"
+        },
+        {
+          "eventId": "join_1773074442_de7e",
+          "teamName": "Royal Otter",
+          "joinedAt": 1773074442.979821,
+          "type": "join"
+        },
+        {
+          "eventId": "join_1773074442_81e5",
+          "teamName": "Agile Phoenix",
+          "joinedAt": 1773074442.872115,
+          "type": "join"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:21.736Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/list-teams.php",
+    "status": 200,
+    "data": {
+      "teams": [
+        {
+          "email": "admin@stonybrook.edu",
+          "teamName": "Bold Lynx",
+          "funds": 5424,
+          "initialPotential": 5424,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 537,
+            "N": 1664,
+            "D": 597,
+            "Q": 1938
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        },
+        {
+          "email": "test_mail3@stonybrook.edu",
+          "teamName": "Lucky Hawk",
+          "funds": 7531.67,
+          "initialPotential": 7104.57,
+          "percentImprovement": 6.01,
+          "inventory": {
+            "C": 0,
+            "N": 223.4875,
+            "D": 0.0025,
+            "Q": 883.66
+          },
+          "activeOffers": 0,
+          "totalTrades": 5,
+          "lastUpdated": null
+        },
+        {
+          "email": "npc_69aef80b1628d@system",
+          "teamName": "Reliable Deer",
+          "funds": 5900.02,
+          "initialPotential": 5900,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 161.005,
+            "N": 763.003,
+            "D": 0.002,
+            "Q": 1579
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        },
+        {
+          "email": "npc_69aef80b303ac@system",
+          "teamName": "Steady Squirrel",
+          "funds": 10096.37,
+          "initialPotential": 10096.36,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 1041.365,
+            "N": 0.0015,
+            "D": 0.0015,
+            "Q": 466.092
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        },
+        {
+          "email": "test_mail1@stonybrook.edu",
+          "teamName": "Crafty Otter",
+          "funds": 8283.92,
+          "initialPotential": 8507.43,
+          "percentImprovement": -2.63,
+          "inventory": {
+            "C": 0,
+            "N": 346.2,
+            "D": 0,
+            "Q": 266.8
+          },
+          "activeOffers": 0,
+          "totalTrades": 8,
+          "lastUpdated": null
+        },
+        {
+          "email": "test_mail2@stonybrook.edu",
+          "teamName": "Daring Rhino",
+          "funds": 13979.5,
+          "initialPotential": 13754.5,
+          "percentImprovement": 1.64,
+          "inventory": {
+            "C": 0,
+            "N": 98.325,
+            "D": 28.175,
+            "Q": 0
+          },
+          "activeOffers": 0,
+          "totalTrades": 5,
+          "lastUpdated": null
+        },
+        {
+          "email": "npc_69aef80ad4e5a@system",
+          "teamName": "Prime Tiger",
+          "funds": 6972,
+          "initialPotential": 6972,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 0,
+            "N": 48.4,
+            "D": 0,
+            "Q": 1241.6
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        },
+        {
+          "email": "npc_69aef80aef31c@system",
+          "teamName": "Savvy Panther",
+          "funds": 5713.71,
+          "initialPotential": 5713.71,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 0,
+            "N": 1163.4575,
+            "D": 0.0005,
+            "Q": 1464.972
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        }
+      ],
+      "totalTeams": 8,
+      "timestamp": 1773074481
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:21.736Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/npc/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "enabled": true,
+      "npcs": [
+        {
+          "id": "npc_69aef80ad4e5a",
+          "email": "npc_69aef80ad4e5a@system",
+          "teamName": "Prime Tiger",
+          "skillLevel": "expert",
+          "active": true,
+          "createdAt": 1773074442,
+          "tradeThresholds": {
+            "lowInventory": 300,
+            "excessInventory": 1800
+          },
+          "stats": {
+            "totalTrades": 0,
+            "totalProfit": 0,
+            "lastTradeAt": 0
+          },
+          "currentFunds": 6972,
+          "inventory": {
+            "C": 0,
+            "N": 48.4,
+            "D": 0,
+            "Q": 1241.6,
+            "transactionsSinceLastShadowCalc": 4,
+            "stalenessLevel": "stale"
+          },
+          "initialProductionPotential": 6972
+        },
+        {
+          "id": "npc_69aef80aef31c",
+          "email": "npc_69aef80aef31c@system",
+          "teamName": "Savvy Panther",
+          "skillLevel": "expert",
+          "active": true,
+          "createdAt": 1773074443,
+          "tradeThresholds": {
+            "lowInventory": 300,
+            "excessInventory": 1800
+          },
+          "stats": {
+            "totalTrades": 0,
+            "totalProfit": 0,
+            "lastTradeAt": 0
+          },
+          "currentFunds": 5713.71,
+          "inventory": {
+            "C": 0,
+            "N": 1163.4575,
+            "D": 0.0005,
+            "Q": 1464.972,
+            "transactionsSinceLastShadowCalc": 4,
+            "stalenessLevel": "stale"
+          },
+          "initialProductionPotential": 5713.71
+        },
+        {
+          "id": "npc_69aef80b1628d",
+          "email": "npc_69aef80b1628d@system",
+          "teamName": "Reliable Deer",
+          "skillLevel": "novice",
+          "active": true,
+          "createdAt": 1773074443,
+          "tradeThresholds": {
+            "lowInventory": 300,
+            "excessInventory": 1800
+          },
+          "stats": {
+            "totalTrades": 0,
+            "totalProfit": 0,
+            "lastTradeAt": 0
+          },
+          "currentFunds": 5900,
+          "inventory": {
+            "C": 161.005,
+            "N": 763.003,
+            "D": 0.002,
+            "Q": 1579,
+            "transactionsSinceLastShadowCalc": 3,
+            "stalenessLevel": "stale"
+          },
+          "initialProductionPotential": 5900
+        },
+        {
+          "id": "npc_69aef80b303ac",
+          "email": "npc_69aef80b303ac@system",
+          "teamName": "Steady Squirrel",
+          "skillLevel": "novice",
+          "active": true,
+          "createdAt": 1773074443,
+          "tradeThresholds": {
+            "lowInventory": 300,
+            "excessInventory": 1800
+          },
+          "stats": {
+            "totalTrades": 0,
+            "totalProfit": 0,
+            "lastTradeAt": 0
+          },
+          "currentFunds": 10096.36,
+          "inventory": {
+            "C": 1041.365,
+            "N": 0.0015,
+            "D": 0.0015,
+            "Q": 466.092,
+            "transactionsSinceLastShadowCalc": 4,
+            "stalenessLevel": "stale"
+          },
+          "initialProductionPotential": 10096.36
+        }
+      ],
+      "count": 4
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.083Z",
+    "user": "admin@stonybrook.edu",
+    "method": "POST",
+    "url": "admin/reset-game.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "message": "Game data completely reset! Players will get new teams when they login.",
+      "teamsReset": 248,
+      "sessionState": {
+        "currentSession": 1,
+        "phase": "TRADING",
+        "autoAdvance": true,
+        "productionDuration": 0,
+        "tradingDuration": 600,
+        "timeRemaining": 600,
+        "lastTick": 1773074482,
+        "phaseStartedAt": 1773074482,
+        "npcLastRun": 0,
+        "productionRun": null,
+        "initialProductionRun": null,
+        "productionJustRan": null,
+        "gameStopped": true,
+        "gameFinished": false
+      },
+      "errors": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.096Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/session.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": {
+        "currentSession": 1,
+        "phase": "TRADING",
+        "autoAdvance": true,
+        "productionDuration": 0,
+        "tradingDuration": 600,
+        "timeRemaining": 600,
+        "lastTick": 1773074482,
+        "phaseStartedAt": 1773074482,
+        "npcLastRun": 0,
+        "productionRun": null,
+        "initialProductionRun": null,
+        "productionJustRan": null,
+        "gameStopped": true,
+        "gameFinished": false
+      },
+      "recentTrades": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.104Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/list-teams.php",
+    "status": 200,
+    "data": {
+      "teams": [],
+      "totalTeams": 0,
+      "timestamp": 1773074482
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.106Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/npc/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "enabled": true,
+      "npcs": [],
+      "count": 0
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.183Z",
+    "user": "admin@stonybrook.edu",
+    "method": "POST",
+    "url": "admin/session.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "message": "Game started",
+      "session": {
+        "currentSession": 1,
+        "phase": "TRADING",
+        "autoAdvance": true,
+        "productionDuration": 0,
+        "tradingDuration": 600,
+        "timeRemaining": 600,
+        "lastTick": 1773074482,
+        "phaseStartedAt": 1773074482,
+        "npcLastRun": 0,
+        "productionRun": null,
+        "initialProductionRun": null,
+        "productionJustRan": null,
+        "gameStopped": false,
+        "gameFinished": false
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.186Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/session.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": {
+        "currentSession": 1,
+        "phase": "TRADING",
+        "autoAdvance": true,
+        "productionDuration": 0,
+        "tradingDuration": 600,
+        "timeRemaining": 600,
+        "lastTick": 1773074482,
+        "phaseStartedAt": 1773074482,
+        "npcLastRun": 0,
+        "productionRun": null,
+        "initialProductionRun": null,
+        "productionJustRan": null,
+        "gameStopped": false,
+        "gameFinished": false
+      },
+      "recentTrades": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.696Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 9245.71,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 9245.71
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 9245.71
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2120,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1668.57,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1060,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1060,
+              "available": 1060
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1053.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 811.86,
+              "used": 1053.14,
+              "available": 1865
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 1008,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1008,
+              "available": 1008
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 667.43,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 995.57,
+              "used": 667.43,
+              "available": 1663
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.696Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail1@stonybrook.edu",
+        "teamName": "Crafty Otter",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 9245.71,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1060,
+        "N": 1865,
+        "D": 1008,
+        "Q": 1663,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.696Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices-read.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0,
+        "N": 0,
+        "D": 0,
+        "Q": 0
+      },
+      "staleness": {
+        "count": 0,
+        "level": "fresh"
+      },
+      "inventory": {
+        "C": 1060,
+        "N": 1865,
+        "D": 1008,
+        "Q": 1663
+      },
+      "note": "Read-only - use /shadow-prices.php to recalculate"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.696Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.696Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "negotiations/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "negotiations": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.697Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "trades/history.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "transactions": [],
+      "debug": {
+        "teamEmail": "test_mail1@stonybrook.edu",
+        "teamName": "Crafty Otter",
+        "transactionCount": 0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.697Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "notifications/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "notifications": [],
+      "unreadCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.697Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "team/settings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "settings": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.697Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 9245.71,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 9245.71
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 9245.71
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2120,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1668.57,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1060,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1060,
+              "available": 1060
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1053.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 811.86,
+              "used": 1053.14,
+              "available": 1865
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 1008,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1008,
+              "available": 1008
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 667.43,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 995.57,
+              "used": 667.43,
+              "available": 1663
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.697Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 9245.71,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 9245.71
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 9245.71
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2120,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1668.57,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1060,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1060,
+              "available": 1060
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1053.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 811.86,
+              "used": 1053.14,
+              "available": 1865
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 1008,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1008,
+              "available": 1008
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 667.43,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 995.57,
+              "used": 667.43,
+              "available": 1663
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.717Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "leaderboard/standings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": 1,
+      "phase": "TRADING",
+      "standings": [
+        {
+          "teamName": "Crafty Otter",
+          "teamId": "test_mail1@stonybrook.edu",
+          "email": "test_mail1@stonybrook.edu",
+          "startingFunds": 9245.71,
+          "currentFunds": 9245.71,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1060,
+            "N": 1865,
+            "D": 1008,
+            "Q": 1663
+          },
+          "totalTrades": 0,
+          "rank": 1
+        }
+      ],
+      "totalTeams": 1
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.812Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0.57,
+        "N": 0,
+        "D": 8.57,
+        "Q": 0
+      },
+      "ranges": {
+        "C": {
+          "allowableDecrease": 1060,
+          "allowableIncrease": 1460
+        },
+        "N": {
+          "allowableDecrease": 811.86,
+          "allowableIncrease": 9999
+        },
+        "D": {
+          "allowableDecrease": 584,
+          "allowableIncrease": 871.13
+        },
+        "Q": {
+          "allowableDecrease": 995.57,
+          "allowableIncrease": 9999
+        }
+      },
+      "constraints": [
+        {
+          "name": "C",
+          "slack": 0,
+          "status": "Binding"
+        },
+        {
+          "name": "N",
+          "slack": 811.86,
+          "status": "Not Binding"
+        },
+        {
+          "name": "D",
+          "slack": 0,
+          "status": "Binding"
+        },
+        {
+          "name": "Q",
+          "slack": 995.57,
+          "status": "Not Binding"
+        }
+      ],
+      "optimalMix": {
+        "deicer": 2120,
+        "solvent": 1668.57
+      },
+      "maxProfit": 9245.71,
+      "calculatedAt": 1773074482,
+      "inventory": {
+        "C": 1060,
+        "N": 1865,
+        "D": 1008,
+        "Q": 1663
+      },
+      "note": "These shadow prices are PRIVATE to your team and calculated using Linear Programming"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.928Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "POST",
+    "url": "listings/post.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "message": "Listing posted successfully",
+      "listing": {
+        "ads": [
+          {
+            "id": "ad_1773074482_fd15c2b0",
+            "teamId": "test_mail1@stonybrook.edu",
+            "chemical": "C",
+            "type": "buy",
+            "status": "active",
+            "createdAt": 1773074482
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.933Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail1@stonybrook.edu",
+        "teamName": "Crafty Otter",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 9245.71,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1060,
+        "N": 1865,
+        "D": 1008,
+        "Q": 1663,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.937Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [
+            {
+              "id": "ad_1773074482_fd15c2b0",
+              "teamId": "test_mail1@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074482,
+              "teamName": "Crafty Otter"
+            }
+          ],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:22.949Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "session/status.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": 1,
+      "phase": "TRADING",
+      "timeRemaining": 600,
+      "autoAdvance": true,
+      "productionJustRan": null,
+      "gameStopped": false,
+      "gameFinished": false,
+      "recentTrades": [
+        {
+          "eventId": "join_1773074482_21f3",
+          "teamName": "Crafty Otter",
+          "joinedAt": 1773074482.493156,
+          "type": "join"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 8624,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 8624
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 8624
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2194,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1412,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1097,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1097,
+              "available": 1097
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1011.2,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 454.8,
+              "used": 1011.2,
+              "available": 1466
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 933,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 933,
+              "available": 933
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 564.8,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 676.2,
+              "used": 564.8,
+              "available": 1241
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail2@stonybrook.edu",
+        "teamName": "Daring Rhino",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 8624,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1097,
+        "N": 1466,
+        "D": 933,
+        "Q": 1241,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices-read.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0,
+        "N": 0,
+        "D": 0,
+        "Q": 0
+      },
+      "staleness": {
+        "count": 0,
+        "level": "fresh"
+      },
+      "inventory": {
+        "C": 1097,
+        "N": 1466,
+        "D": 933,
+        "Q": 1241
+      },
+      "note": "Read-only - use /shadow-prices.php to recalculate"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [
+            {
+              "id": "ad_1773074482_fd15c2b0",
+              "teamId": "test_mail1@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074482,
+              "teamName": "Crafty Otter"
+            }
+          ],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "negotiations/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "negotiations": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "trades/history.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "transactions": [],
+      "debug": {
+        "teamEmail": "test_mail2@stonybrook.edu",
+        "teamName": "Daring Rhino",
+        "transactionCount": 0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "notifications/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "notifications": [],
+      "unreadCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "team/settings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "settings": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 8624,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 8624
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 8624
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2194,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1412,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1097,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1097,
+              "available": 1097
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1011.2,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 454.8,
+              "used": 1011.2,
+              "available": 1466
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 933,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 933,
+              "available": 933
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 564.8,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 676.2,
+              "used": 564.8,
+              "available": 1241
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.454Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 8624,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 8624
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 8624
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2194,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1412,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1097,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1097,
+              "available": 1097
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1011.2,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 454.8,
+              "used": 1011.2,
+              "available": 1466
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 933,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 933,
+              "available": 933
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 564.8,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 676.2,
+              "used": 564.8,
+              "available": 1241
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.472Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "leaderboard/standings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": 1,
+      "phase": "TRADING",
+      "standings": [
+        {
+          "teamName": "Daring Rhino",
+          "teamId": "test_mail2@stonybrook.edu",
+          "email": "test_mail2@stonybrook.edu",
+          "startingFunds": 8624,
+          "currentFunds": 8624,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1097,
+            "N": 1466,
+            "D": 933,
+            "Q": 1241
+          },
+          "totalTrades": 0,
+          "rank": 1
+        },
+        {
+          "teamName": "Crafty Otter",
+          "teamId": "test_mail1@stonybrook.edu",
+          "email": "test_mail1@stonybrook.edu",
+          "startingFunds": 9245.71,
+          "currentFunds": 9245.71,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1060,
+            "N": 1865,
+            "D": 1008,
+            "Q": 1663
+          },
+          "totalTrades": 0,
+          "rank": 2
+        }
+      ],
+      "totalTeams": 2
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.567Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0.57,
+        "N": 0,
+        "D": 8.57,
+        "Q": 0
+      },
+      "ranges": {
+        "C": {
+          "allowableDecrease": 1097,
+          "allowableIncrease": 1235.5
+        },
+        "N": {
+          "allowableDecrease": 454.8,
+          "allowableIncrease": 9999
+        },
+        "D": {
+          "allowableDecrease": 494.2,
+          "allowableIncrease": 591.67
+        },
+        "Q": {
+          "allowableDecrease": 676.2,
+          "allowableIncrease": 9999
+        }
+      },
+      "constraints": [
+        {
+          "name": "C",
+          "slack": 0,
+          "status": "Binding"
+        },
+        {
+          "name": "N",
+          "slack": 454.8,
+          "status": "Not Binding"
+        },
+        {
+          "name": "D",
+          "slack": 0,
+          "status": "Binding"
+        },
+        {
+          "name": "Q",
+          "slack": 676.2,
+          "status": "Not Binding"
+        }
+      ],
+      "optimalMix": {
+        "deicer": 2194,
+        "solvent": 1412
+      },
+      "maxProfit": 8624,
+      "calculatedAt": 1773074483,
+      "inventory": {
+        "C": 1097,
+        "N": 1466,
+        "D": 933,
+        "Q": 1241
+      },
+      "note": "These shadow prices are PRIVATE to your team and calculated using Linear Programming"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.682Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "POST",
+    "url": "listings/post.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "message": "Listing posted successfully",
+      "listing": {
+        "ads": [
+          {
+            "id": "ad_1773074483_6a2c8fa8",
+            "teamId": "test_mail2@stonybrook.edu",
+            "chemical": "C",
+            "type": "buy",
+            "status": "active",
+            "createdAt": 1773074483
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.695Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail2@stonybrook.edu",
+        "teamName": "Daring Rhino",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 8624,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1097,
+        "N": 1466,
+        "D": 933,
+        "Q": 1241,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:23.697Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [
+            {
+              "id": "ad_1773074482_fd15c2b0",
+              "teamId": "test_mail1@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074482,
+              "teamName": "Crafty Otter"
+            },
+            {
+              "id": "ad_1773074483_6a2c8fa8",
+              "teamId": "test_mail2@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074483,
+              "teamName": "Daring Rhino"
+            }
+          ],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.271Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 6868.57,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 6868.57
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 6868.57
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2440,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 662.85,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1220,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1220,
+              "available": 1220
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 897.71,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 213.29,
+              "used": 897.71,
+              "available": 1111
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 720,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 720,
+              "available": 720
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 265.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 1643.86,
+              "used": 265.14,
+              "available": 1909
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.271Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail3@stonybrook.edu",
+        "teamName": "Lucky Hawk",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 6868.57,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1220,
+        "N": 1111,
+        "D": 720,
+        "Q": 1909,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.271Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices-read.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0,
+        "N": 0,
+        "D": 0,
+        "Q": 0
+      },
+      "staleness": {
+        "count": 0,
+        "level": "fresh"
+      },
+      "inventory": {
+        "C": 1220,
+        "N": 1111,
+        "D": 720,
+        "Q": 1909
+      },
+      "note": "Read-only - use /shadow-prices.php to recalculate"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.271Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [
+            {
+              "id": "ad_1773074482_fd15c2b0",
+              "teamId": "test_mail1@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074482,
+              "teamName": "Crafty Otter"
+            },
+            {
+              "id": "ad_1773074483_6a2c8fa8",
+              "teamId": "test_mail2@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074483,
+              "teamName": "Daring Rhino"
+            }
+          ],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.271Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "negotiations/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "negotiations": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.271Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "trades/history.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "transactions": [],
+      "debug": {
+        "teamEmail": "test_mail3@stonybrook.edu",
+        "teamName": "Lucky Hawk",
+        "transactionCount": 0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.271Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "notifications/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "notifications": [],
+      "unreadCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.271Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "team/settings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "settings": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.277Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 6868.57,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 6868.57
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 6868.57
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2440,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 662.85,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1220,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1220,
+              "available": 1220
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 897.71,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 213.29,
+              "used": 897.71,
+              "available": 1111
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 720,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 720,
+              "available": 720
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 265.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 1643.86,
+              "used": 265.14,
+              "available": 1909
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.277Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 6868.57,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 6868.57
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 6868.57
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2440,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 662.85,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1220,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1220,
+              "available": 1220
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 897.71,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 213.29,
+              "used": 897.71,
+              "available": 1111
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 720,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 720,
+              "available": 720
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 265.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 1643.86,
+              "used": 265.14,
+              "available": 1909
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.291Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "leaderboard/standings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": 1,
+      "phase": "TRADING",
+      "standings": [
+        {
+          "teamName": "Lucky Hawk",
+          "teamId": "test_mail3@stonybrook.edu",
+          "email": "test_mail3@stonybrook.edu",
+          "startingFunds": 6868.57,
+          "currentFunds": 6868.57,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1220,
+            "N": 1111,
+            "D": 720,
+            "Q": 1909
+          },
+          "totalTrades": 0,
+          "rank": 1
+        },
+        {
+          "teamName": "Daring Rhino",
+          "teamId": "test_mail2@stonybrook.edu",
+          "email": "test_mail2@stonybrook.edu",
+          "startingFunds": 8624,
+          "currentFunds": 8624,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1097,
+            "N": 1466,
+            "D": 933,
+            "Q": 1241
+          },
+          "totalTrades": 0,
+          "rank": 2
+        },
+        {
+          "teamName": "Crafty Otter",
+          "teamId": "test_mail1@stonybrook.edu",
+          "email": "test_mail1@stonybrook.edu",
+          "startingFunds": 9245.71,
+          "currentFunds": 9245.71,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1060,
+            "N": 1865,
+            "D": 1008,
+            "Q": 1663
+          },
+          "totalTrades": 0,
+          "rank": 3
+        }
+      ],
+      "totalTeams": 3
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.381Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0.57,
+        "N": 0,
+        "D": 8.57,
+        "Q": 0
+      },
+      "ranges": {
+        "C": {
+          "allowableDecrease": 1220,
+          "allowableIncrease": 580
+        },
+        "N": {
+          "allowableDecrease": 213.29,
+          "allowableIncrease": 9999
+        },
+        "D": {
+          "allowableDecrease": 232,
+          "allowableIncrease": 298.6
+        },
+        "Q": {
+          "allowableDecrease": 1643.86,
+          "allowableIncrease": 9999
+        }
+      },
+      "constraints": [
+        {
+          "name": "C",
+          "slack": 0,
+          "status": "Binding"
+        },
+        {
+          "name": "N",
+          "slack": 213.29,
+          "status": "Not Binding"
+        },
+        {
+          "name": "D",
+          "slack": 0,
+          "status": "Binding"
+        },
+        {
+          "name": "Q",
+          "slack": 1643.86,
+          "status": "Not Binding"
+        }
+      ],
+      "optimalMix": {
+        "deicer": 2440,
+        "solvent": 662.85
+      },
+      "maxProfit": 6868.57,
+      "calculatedAt": 1773074484,
+      "inventory": {
+        "C": 1220,
+        "N": 1111,
+        "D": 720,
+        "Q": 1909
+      },
+      "note": "These shadow prices are PRIVATE to your team and calculated using Linear Programming"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.500Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "POST",
+    "url": "listings/post.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "message": "Listing posted successfully",
+      "listing": {
+        "ads": [
+          {
+            "id": "ad_1773074484_1ac8d4ea",
+            "teamId": "test_mail3@stonybrook.edu",
+            "chemical": "C",
+            "type": "buy",
+            "status": "active",
+            "createdAt": 1773074484
+          }
+        ]
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.513Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail3@stonybrook.edu",
+        "teamName": "Lucky Hawk",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 6868.57,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1220,
+        "N": 1111,
+        "D": 720,
+        "Q": 1909,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:24.516Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [
+            {
+              "id": "ad_1773074482_fd15c2b0",
+              "teamId": "test_mail1@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074482,
+              "teamName": "Crafty Otter"
+            },
+            {
+              "id": "ad_1773074483_6a2c8fa8",
+              "teamId": "test_mail2@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074483,
+              "teamName": "Daring Rhino"
+            },
+            {
+              "id": "ad_1773074484_1ac8d4ea",
+              "teamId": "test_mail3@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074484,
+              "teamName": "Lucky Hawk"
+            }
+          ],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.021Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 9245.71,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 9245.71
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 9245.71
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2120,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1668.57,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1060,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1060,
+              "available": 1060
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1053.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 811.86,
+              "used": 1053.14,
+              "available": 1865
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 1008,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1008,
+              "available": 1008
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 667.43,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 995.57,
+              "used": 667.43,
+              "available": 1663
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.021Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail1@stonybrook.edu",
+        "teamName": "Crafty Otter",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 9245.71,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1060,
+        "N": 1865,
+        "D": 1008,
+        "Q": 1663,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.022Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices-read.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0.57,
+        "N": 0,
+        "D": 8.57,
+        "Q": 0
+      },
+      "staleness": {
+        "count": 0,
+        "level": "fresh"
+      },
+      "inventory": {
+        "C": 1060,
+        "N": 1865,
+        "D": 1008,
+        "Q": 1663
+      },
+      "note": "Read-only - use /shadow-prices.php to recalculate"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.022Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [
+            {
+              "id": "ad_1773074482_fd15c2b0",
+              "teamId": "test_mail1@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074482,
+              "teamName": "Crafty Otter"
+            },
+            {
+              "id": "ad_1773074483_6a2c8fa8",
+              "teamId": "test_mail2@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074483,
+              "teamName": "Daring Rhino"
+            },
+            {
+              "id": "ad_1773074484_1ac8d4ea",
+              "teamId": "test_mail3@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074484,
+              "teamName": "Lucky Hawk"
+            }
+          ],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.022Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "negotiations/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "negotiations": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.022Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "trades/history.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "transactions": [],
+      "debug": {
+        "teamEmail": "test_mail1@stonybrook.edu",
+        "teamName": "Crafty Otter",
+        "transactionCount": 0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.022Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "notifications/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "notifications": [],
+      "unreadCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.022Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "team/settings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "settings": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.031Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 9245.71,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 9245.71
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 9245.71
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2120,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1668.57,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1060,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1060,
+              "available": 1060
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1053.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 811.86,
+              "used": 1053.14,
+              "available": 1865
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 1008,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1008,
+              "available": 1008
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 667.43,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 995.57,
+              "used": 667.43,
+              "available": 1663
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.031Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 9245.71,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 9245.71
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 9245.71
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2120,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1668.57,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1060,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1060,
+              "available": 1060
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1053.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 811.86,
+              "used": 1053.14,
+              "available": 1865
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 1008,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1008,
+              "available": 1008
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 667.43,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 995.57,
+              "used": 667.43,
+              "available": 1663
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1060,
+              "shadowPrice": 0.57,
+              "currentInventory": 1060,
+              "constraintRHS": 1060,
+              "allowableIncrease": 1460,
+              "allowableDecrease": 1060
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1053.14,
+              "shadowPrice": 0,
+              "currentInventory": 1865,
+              "constraintRHS": 1865,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 811.86
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 1008,
+              "shadowPrice": 8.57,
+              "currentInventory": 1008,
+              "constraintRHS": 1008,
+              "allowableIncrease": 871.13,
+              "allowableDecrease": 584
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 667.43,
+              "shadowPrice": 0,
+              "currentInventory": 1663,
+              "constraintRHS": 1663,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 995.57
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.046Z",
+    "user": "test_mail1@stonybrook.edu",
+    "method": "GET",
+    "url": "leaderboard/standings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": 1,
+      "phase": "TRADING",
+      "standings": [
+        {
+          "teamName": "Lucky Hawk",
+          "teamId": "test_mail3@stonybrook.edu",
+          "email": "test_mail3@stonybrook.edu",
+          "startingFunds": 6868.57,
+          "currentFunds": 6868.57,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1220,
+            "N": 1111,
+            "D": 720,
+            "Q": 1909
+          },
+          "totalTrades": 0,
+          "rank": 1
+        },
+        {
+          "teamName": "Daring Rhino",
+          "teamId": "test_mail2@stonybrook.edu",
+          "email": "test_mail2@stonybrook.edu",
+          "startingFunds": 8624,
+          "currentFunds": 8624,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1097,
+            "N": 1466,
+            "D": 933,
+            "Q": 1241
+          },
+          "totalTrades": 0,
+          "rank": 2
+        },
+        {
+          "teamName": "Crafty Otter",
+          "teamId": "test_mail1@stonybrook.edu",
+          "email": "test_mail1@stonybrook.edu",
+          "startingFunds": 9245.71,
+          "currentFunds": 9245.71,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1060,
+            "N": 1865,
+            "D": 1008,
+            "Q": 1663
+          },
+          "totalTrades": 0,
+          "rank": 3
+        }
+      ],
+      "totalTeams": 3
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.587Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 8624,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 8624
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 8624
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2194,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1412,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1097,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1097,
+              "available": 1097
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1011.2,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 454.8,
+              "used": 1011.2,
+              "available": 1466
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 933,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 933,
+              "available": 933
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 564.8,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 676.2,
+              "used": 564.8,
+              "available": 1241
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.588Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail2@stonybrook.edu",
+        "teamName": "Daring Rhino",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 8624,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1097,
+        "N": 1466,
+        "D": 933,
+        "Q": 1241,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.588Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices-read.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0.57,
+        "N": 0,
+        "D": 8.57,
+        "Q": 0
+      },
+      "staleness": {
+        "count": 0,
+        "level": "fresh"
+      },
+      "inventory": {
+        "C": 1097,
+        "N": 1466,
+        "D": 933,
+        "Q": 1241
+      },
+      "note": "Read-only - use /shadow-prices.php to recalculate"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.588Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [
+            {
+              "id": "ad_1773074482_fd15c2b0",
+              "teamId": "test_mail1@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074482,
+              "teamName": "Crafty Otter"
+            },
+            {
+              "id": "ad_1773074483_6a2c8fa8",
+              "teamId": "test_mail2@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074483,
+              "teamName": "Daring Rhino"
+            },
+            {
+              "id": "ad_1773074484_1ac8d4ea",
+              "teamId": "test_mail3@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074484,
+              "teamName": "Lucky Hawk"
+            }
+          ],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.588Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "negotiations/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "negotiations": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.588Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "trades/history.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "transactions": [],
+      "debug": {
+        "teamEmail": "test_mail2@stonybrook.edu",
+        "teamName": "Daring Rhino",
+        "transactionCount": 0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.588Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "notifications/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "notifications": [],
+      "unreadCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.588Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "team/settings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "settings": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.588Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 8624,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 8624
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 8624
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2194,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1412,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1097,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1097,
+              "available": 1097
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1011.2,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 454.8,
+              "used": 1011.2,
+              "available": 1466
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 933,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 933,
+              "available": 933
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 564.8,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 676.2,
+              "used": 564.8,
+              "available": 1241
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.596Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 8624,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 8624
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 8624
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2194,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 1412,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1097,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1097,
+              "available": 1097
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 1011.2,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 454.8,
+              "used": 1011.2,
+              "available": 1466
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 933,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 933,
+              "available": 933
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 564.8,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 676.2,
+              "used": 564.8,
+              "available": 1241
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1097,
+              "shadowPrice": 0.57,
+              "currentInventory": 1097,
+              "constraintRHS": 1097,
+              "allowableIncrease": 1235.5,
+              "allowableDecrease": 1097
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 1011.2,
+              "shadowPrice": 0,
+              "currentInventory": 1466,
+              "constraintRHS": 1466,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 454.8
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 933,
+              "shadowPrice": 8.57,
+              "currentInventory": 933,
+              "constraintRHS": 933,
+              "allowableIncrease": 591.67,
+              "allowableDecrease": 494.2
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 564.8,
+              "shadowPrice": 0,
+              "currentInventory": 1241,
+              "constraintRHS": 1241,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 676.2
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:26.615Z",
+    "user": "test_mail2@stonybrook.edu",
+    "method": "GET",
+    "url": "leaderboard/standings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": 1,
+      "phase": "TRADING",
+      "standings": [
+        {
+          "teamName": "Lucky Hawk",
+          "teamId": "test_mail3@stonybrook.edu",
+          "email": "test_mail3@stonybrook.edu",
+          "startingFunds": 6868.57,
+          "currentFunds": 6868.57,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1220,
+            "N": 1111,
+            "D": 720,
+            "Q": 1909
+          },
+          "totalTrades": 0,
+          "rank": 1
+        },
+        {
+          "teamName": "Daring Rhino",
+          "teamId": "test_mail2@stonybrook.edu",
+          "email": "test_mail2@stonybrook.edu",
+          "startingFunds": 8624,
+          "currentFunds": 8624,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1097,
+            "N": 1466,
+            "D": 933,
+            "Q": 1241
+          },
+          "totalTrades": 0,
+          "rank": 2
+        },
+        {
+          "teamName": "Crafty Otter",
+          "teamId": "test_mail1@stonybrook.edu",
+          "email": "test_mail1@stonybrook.edu",
+          "startingFunds": 9245.71,
+          "currentFunds": 9245.71,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1060,
+            "N": 1865,
+            "D": 1008,
+            "Q": 1663
+          },
+          "totalTrades": 0,
+          "rank": 3
+        }
+      ],
+      "totalTeams": 3
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 6868.57,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 6868.57
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 6868.57
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2440,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 662.85,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1220,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1220,
+              "available": 1220
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 897.71,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 213.29,
+              "used": 897.71,
+              "available": 1111
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 720,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 720,
+              "available": 720
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 265.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 1643.86,
+              "used": 265.14,
+              "available": 1909
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "team/profile.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "profile": {
+        "email": "test_mail3@stonybrook.edu",
+        "teamName": "Lucky Hawk",
+        "currentFunds": 0,
+        "startingFunds": 0,
+        "initialProductionPotential": 6868.57,
+        "settings": []
+      },
+      "inventory": {
+        "C": 1220,
+        "N": 1111,
+        "D": 720,
+        "Q": 1909,
+        "transactionsSinceLastShadowCalc": 0,
+        "stalenessLevel": "fresh"
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "production/shadow-prices-read.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "shadowPrices": {
+        "C": 0.57,
+        "N": 0,
+        "D": 8.57,
+        "Q": 0
+      },
+      "staleness": {
+        "count": 0,
+        "level": "fresh"
+      },
+      "inventory": {
+        "C": 1220,
+        "N": 1111,
+        "D": 720,
+        "Q": 1909
+      },
+      "note": "Read-only - use /shadow-prices.php to recalculate"
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "listings/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "listings": {
+        "C": {
+          "buy": [
+            {
+              "id": "ad_1773074482_fd15c2b0",
+              "teamId": "test_mail1@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074482,
+              "teamName": "Crafty Otter"
+            },
+            {
+              "id": "ad_1773074483_6a2c8fa8",
+              "teamId": "test_mail2@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074483,
+              "teamName": "Daring Rhino"
+            },
+            {
+              "id": "ad_1773074484_1ac8d4ea",
+              "teamId": "test_mail3@stonybrook.edu",
+              "chemical": "C",
+              "type": "buy",
+              "status": "active",
+              "createdAt": 1773074484,
+              "teamName": "Lucky Hawk"
+            }
+          ],
+          "sell": []
+        },
+        "N": {
+          "buy": [],
+          "sell": []
+        },
+        "D": {
+          "buy": [],
+          "sell": []
+        },
+        "Q": {
+          "buy": [],
+          "sell": []
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "negotiations/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "negotiations": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "trades/history.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "transactions": [],
+      "debug": {
+        "teamEmail": "test_mail3@stonybrook.edu",
+        "teamName": "Lucky Hawk",
+        "transactionCount": 0
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "notifications/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "notifications": [],
+      "unreadCount": 0
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "team/settings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "settings": []
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.158Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 6868.57,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 6868.57
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 6868.57
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2440,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 662.85,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1220,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1220,
+              "available": 1220
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 897.71,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 213.29,
+              "used": 897.71,
+              "available": 1111
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 720,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 720,
+              "available": 720
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 265.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 1643.86,
+              "used": 265.14,
+              "available": 1909
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.170Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "reports/index.php?type=all",
+    "status": 200,
+    "data": {
+      "success": true,
+      "financials": {
+        "productionRevenue": 6868.57,
+        "salesRevenue": 0,
+        "purchaseCosts": 0,
+        "totalProfit": 6868.57
+      },
+      "transactions": [],
+      "optimization": {
+        "answerReport": {
+          "objective": {
+            "name": "Total Profit (Projected)",
+            "finalValue": 6868.57
+          },
+          "variables": [
+            {
+              "name": "Gallons Deicer",
+              "finalValue": 2440,
+              "objectiveCoef": 2,
+              "type": "Production Mix"
+            },
+            {
+              "name": "Gallons Solvent",
+              "finalValue": 662.85,
+              "objectiveCoef": 3,
+              "type": "Production Mix"
+            }
+          ],
+          "constraints": [
+            {
+              "name": "Liquid C",
+              "cellValue": 1220,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 1220,
+              "available": 1220
+            },
+            {
+              "name": "Liquid N",
+              "cellValue": 897.71,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 213.29,
+              "used": 897.71,
+              "available": 1111
+            },
+            {
+              "name": "Liquid D",
+              "cellValue": 720,
+              "formula": "Used <= Available",
+              "status": "Binding",
+              "slack": 0,
+              "used": 720,
+              "available": 720
+            },
+            {
+              "name": "Liquid Q",
+              "cellValue": 265.14,
+              "formula": "Used <= Available",
+              "status": "Not Binding",
+              "slack": 1643.86,
+              "used": 265.14,
+              "available": 1909
+            }
+          ],
+          "title": "Answer Report (Current Potential)"
+        },
+        "sensitivityReport": {
+          "shadowPrices": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "constraints": [
+            {
+              "chemical": "C",
+              "name": "Liquid C",
+              "finalValue": 1220,
+              "shadowPrice": 0.57,
+              "currentInventory": 1220,
+              "constraintRHS": 1220,
+              "allowableIncrease": 580,
+              "allowableDecrease": 1220
+            },
+            {
+              "chemical": "N",
+              "name": "Liquid N",
+              "finalValue": 897.71,
+              "shadowPrice": 0,
+              "currentInventory": 1111,
+              "constraintRHS": 1111,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 213.29
+            },
+            {
+              "chemical": "D",
+              "name": "Liquid D",
+              "finalValue": 720,
+              "shadowPrice": 8.57,
+              "currentInventory": 720,
+              "constraintRHS": 720,
+              "allowableIncrease": 298.6,
+              "allowableDecrease": 232
+            },
+            {
+              "chemical": "Q",
+              "name": "Liquid Q",
+              "finalValue": 265.14,
+              "shadowPrice": 0,
+              "currentInventory": 1909,
+              "constraintRHS": 1909,
+              "allowableIncrease": "1E+30",
+              "allowableDecrease": 1643.86
+            }
+          ],
+          "title": "Sensitivity Report (Current)"
+        }
+      }
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:27.186Z",
+    "user": "test_mail3@stonybrook.edu",
+    "method": "GET",
+    "url": "leaderboard/standings.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": 1,
+      "phase": "TRADING",
+      "standings": [
+        {
+          "teamName": "Lucky Hawk",
+          "teamId": "test_mail3@stonybrook.edu",
+          "email": "test_mail3@stonybrook.edu",
+          "startingFunds": 6868.57,
+          "currentFunds": 6868.57,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1220,
+            "N": 1111,
+            "D": 720,
+            "Q": 1909
+          },
+          "totalTrades": 0,
+          "rank": 1
+        },
+        {
+          "teamName": "Daring Rhino",
+          "teamId": "test_mail2@stonybrook.edu",
+          "email": "test_mail2@stonybrook.edu",
+          "startingFunds": 8624,
+          "currentFunds": 8624,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1097,
+            "N": 1466,
+            "D": 933,
+            "Q": 1241
+          },
+          "totalTrades": 0,
+          "rank": 2
+        },
+        {
+          "teamName": "Crafty Otter",
+          "teamId": "test_mail1@stonybrook.edu",
+          "email": "test_mail1@stonybrook.edu",
+          "startingFunds": 9245.71,
+          "currentFunds": 9245.71,
+          "profit": 0,
+          "roi": 0,
+          "percentChange": 0,
+          "inventory": {
+            "C": 1060,
+            "N": 1865,
+            "D": 1008,
+            "Q": 1663
+          },
+          "totalTrades": 0,
+          "rank": 3
+        }
+      ],
+      "totalTeams": 3
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:28.764Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/session.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "session": {
+        "currentSession": 1,
+        "phase": "TRADING",
+        "autoAdvance": true,
+        "productionDuration": 0,
+        "tradingDuration": 600,
+        "timeRemaining": 594,
+        "lastTick": 1773074488,
+        "phaseStartedAt": 1773074488,
+        "npcLastRun": 1773074483,
+        "productionRun": null,
+        "initialProductionRun": null,
+        "productionJustRan": null,
+        "gameStopped": false,
+        "gameFinished": false
+      },
+      "recentTrades": [
+        {
+          "eventId": "join_1773074488_aa5b",
+          "teamName": "Bold Lynx",
+          "joinedAt": 1773074488.563395,
+          "type": "join"
+        },
+        {
+          "eventId": "join_1773074484_721d",
+          "teamName": "Lucky Hawk",
+          "joinedAt": 1773074484.068939,
+          "type": "join"
+        },
+        {
+          "eventId": "join_1773074483_921b",
+          "teamName": "Daring Rhino",
+          "joinedAt": 1773074483.251917,
+          "type": "join"
+        },
+        {
+          "eventId": "join_1773074482_21f3",
+          "teamName": "Crafty Otter",
+          "joinedAt": 1773074482.493156,
+          "type": "join"
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:28.765Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/list-teams.php",
+    "status": 200,
+    "data": {
+      "teams": [
+        {
+          "email": "admin@stonybrook.edu",
+          "teamName": "Bold Lynx",
+          "funds": 9216,
+          "initialPotential": 9216,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 1575,
+            "N": 768,
+            "D": 1874,
+            "Q": 1465
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        },
+        {
+          "email": "test_mail3@stonybrook.edu",
+          "teamName": "Lucky Hawk",
+          "funds": 6868.57,
+          "initialPotential": 6868.57,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 1220,
+            "N": 1111,
+            "D": 720,
+            "Q": 1909
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        },
+        {
+          "email": "test_mail2@stonybrook.edu",
+          "teamName": "Daring Rhino",
+          "funds": 8624,
+          "initialPotential": 8624,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 1097,
+            "N": 1466,
+            "D": 933,
+            "Q": 1241
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        },
+        {
+          "email": "test_mail1@stonybrook.edu",
+          "teamName": "Crafty Otter",
+          "funds": 9245.71,
+          "initialPotential": 9245.71,
+          "percentImprovement": 0,
+          "inventory": {
+            "C": 1060,
+            "N": 1865,
+            "D": 1008,
+            "Q": 1663
+          },
+          "activeOffers": 0,
+          "totalTrades": 0,
+          "lastUpdated": null
+        }
+      ],
+      "totalTeams": 4,
+      "timestamp": 1773074488
+    }
+  },
+  {
+    "timestamp": "2026-03-09T16:41:28.765Z",
+    "user": "admin@stonybrook.edu",
+    "method": "GET",
+    "url": "admin/npc/list.php",
+    "status": 200,
+    "data": {
+      "success": true,
+      "enabled": true,
+      "npcs": [],
+      "count": 0
+    }
+  }
+]

@@ -3,7 +3,7 @@
  */
 
 const CONFIG = {
-    baseUrl: 'http://cndq.test/CNDQ/',
+    baseUrl: 'http://localhost:8000/CNDQ/',
     adminUser: 'admin@stonybrook.edu',
     testUsers: [
         'test_mail1@stonybrook.edu',

@@ -12,7 +12,7 @@
     /* Text Colors */
     --text-primary: #f1f5f9;    /* Main text - very light gray */
     --text-secondary: #cbd5e1;  /* Secondary text - light gray */
-    --text-muted: #94a3b8;      /* Muted text - medium gray */
+    --text-muted: #a6b2c0;      /* Muted text — lightened from #94a3b8 for WCAG AA on dark card bgs */
 
     /* Brand Colors */
     --brand-primary: #10b981;   /* Green - primary actions */
@@ -39,10 +39,33 @@
     --border-light: #64748b;
 }
 
+/* Light Theme overrides — card backgrounds must be light so light-theme chemical text colors are readable */
+[data-theme="light"] {
+    --bg-primary: #f8fafc;
+    --bg-card: #ffffff;
+    --bg-card-dark: #f1f5f9;
+    --text-primary: #1e293b;
+    --text-secondary: #334155;
+    --text-muted: #475569;  /* slate-600 — 4.5:1+ on light card backgrounds */
+    --border: #cbd5e1;
+    --border-light: #e2e8f0;
+}
+
+/* High Contrast overrides */
+[data-theme="high-contrast"] {
+    --bg-primary: #000000;
+    --bg-card: #111111;
+    --bg-card-dark: #000000;
+    --text-primary: #ffffff;
+    --text-secondary: #f0f0f0;
+    --text-muted: #cccccc;
+    --chem-q: #ff7777; /* brightened from #ef4444 — passes WCAG AA on dark card bgs */
+}
+
 /* Chemical Badge Classes - Shadow Prices */
 .badge-chem-c {
     background-color: var(--chem-c);
-    color: white;
+    color: #111; /* dark text — passes WCAG AA 4.5:1 on all --chem-* background colors */
     padding: 0.375rem 0.75rem;
     border-radius: 0.375rem;
     font-weight: 600;
@@ -53,7 +76,7 @@
 
 .badge-chem-n {
     background-color: var(--chem-n);
-    color: white;
+    color: #111; /* dark text — passes WCAG AA 4.5:1 on all --chem-* background colors */
     padding: 0.375rem 0.75rem;
     border-radius: 0.375rem;
     font-weight: 600;
@@ -64,7 +87,7 @@
 
 .badge-chem-d {
     background-color: var(--chem-d);
-    color: white;
+    color: #111; /* dark text — passes WCAG AA 4.5:1 on all --chem-* background colors */
     padding: 0.375rem 0.75rem;
     border-radius: 0.375rem;
     font-weight: 600;
@@ -75,7 +98,7 @@
 
 .badge-chem-q {
     background-color: var(--chem-q);
-    color: white;
+    color: #111; /* dark text — passes WCAG AA 4.5:1 on all --chem-* background colors */
     padding: 0.375rem 0.75rem;
     border-radius: 0.375rem;
     font-weight: 600;
@@ -162,7 +185,7 @@
 /* Buttons */
 .btn-primary {
     background-color: var(--brand-primary);
-    color: white;
+    color: #0f2418; /* dark text on green — passes WCAG AA 4.5:1 on #10b981 and #059669 */
     padding: 0.75rem 1.5rem;
     border-radius: 0.5rem;
     font-weight: 600;
@@ -192,7 +215,7 @@
 
 .btn-sell {
     background-color: #10b981;
-    color: white;
+    color: #0f2418; /* dark text on green — passes WCAG AA 4.5:1 */
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
     font-size: 0.875rem;

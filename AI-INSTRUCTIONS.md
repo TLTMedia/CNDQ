@@ -96,5 +96,7 @@ After running, report:
 - **Paths**: All application code uses relative references (`./` and `../`). Never introduce absolute URLs or hardcoded hostnames.
 - **Database**: SQLite at `data/cndq.db`, event-sourced. There is no `advertisements` table (ads are events in `marketplace_events`). There is no `teams` table (team data is in `team_events` and `team_state_cache`).
 - **Local URL**: `http://localhost:8000/CNDQ/` (PHP built-in server) or `http://cndq.test/CNDQ/` (Herd). Never hardcode either in application code.
-- **Authentication**: Production uses Shibboleth (university SSO). Local development bypasses this via `dev.php`.
+- **Authentication**: Production uses Shibboleth (university SSO). Local development bypasses this via `dev.php` (only active when `.env` exists — safe in production). Admin emails: `admin@stonybrook.edu`, `pstdenis@stonybrook.edu`, `hlewis@stonybrook.edu`, `tsexton@stonybrook.edu`. True student test accounts: `test_mail4-6@stonybrook.edu`.
+- **Accessibility**: One collaborator has low vision. WCAG 2.1 AA contrast is a hard requirement. `stylesheet.html` is a static component gallery for visual/a11y review — no auth or game session needed. Run `npx playwright test stylesheet` to verify contrast across all three themes.
+- **CSS**: Two variable systems coexist — `css/styles.css` (`--color-*` prefix, theme-aware) and `css/design-system.css` (`--chem-*`, `--bg-*`, `--brand-*`). Green buttons use dark text (`#0f2418`) not white — green fails WCAG AA with white text.
 - **Codebase context**: Read `AI-ASSISTANT-GUIDE.md` before starting any non-trivial task.

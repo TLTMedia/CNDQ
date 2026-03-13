@@ -121,10 +121,15 @@ CNDQ/
 │       ├── FinancialRenderer.js  # Financial display helpers
 │       └── SoundService.js       # Audio feedback (earcons)
 ├── css/
-│   └── styles.css          # Main stylesheet
-├── tests/                   # Puppeteer/Playwright integration tests
-│   ├── run.js              # Main test runner (npm test)
-│   └── test.js             # Dual-playability test suite
+│   ├── styles.css          # Main stylesheet (theme variables, WCAG AA)
+│   └── design-system.css   # Chemical element colors and badge/button classes
+├── stylesheet.html          # Component gallery — all UI components in all 3 themes (no auth needed)
+├── tests/                   # Playwright integration tests
+│   └── playwright/
+│       ├── health.spec.js       # API endpoint health checks
+│       ├── trade.spec.js        # Trade balance deterministic checks
+│       ├── ui-smoke.spec.js     # Browser smoke tests
+│       └── stylesheet.spec.js  # Accessibility (axe-core WCAG 2.1 AA) — no auth/session needed
 ├── data/                    # Runtime data directory
 │   └── cndq.db             # SQLite database (event-sourced)
 ├── topology.md              # Development environment setup
@@ -272,6 +277,18 @@ WHERE event_type = 'add_ad' AND team_email LIKE 'npc_%'
 - **Laravel Herd** - Local PHP server (macOS/Windows)
 - **Puppeteer** - Automated browser testing
 - **Node.js** - For test runner only (app itself doesn't need Node)
+
+### Styling — Two CSS Files (Important)
+There are **two CSS variable systems** that coexist. Do not conflate them:
+
+| File | Variable prefix | Purpose |
+|---|---|---|
+| `css/styles.css` | `--color-*` | Theme-aware variables (dark/light/high-contrast), WCAG AA compliant |
+| `css/design-system.css` | `--chem-*`, `--bg-*`, `--text-*`, `--brand-*` | Chemical card system, badge classes, button classes |
+
+`styles.css` variables override `design-system.css` variables via `[data-theme]` selectors. Both files are loaded on every page. When adding colors, use `--color-*` from `styles.css`. When styling chemical cards/badges, use the design-system classes.
+
+**Button text on green**: `.btn-primary` and `.btn-sell` use dark text (`#0f2418`) not white — green backgrounds fail WCAG AA with white text.
 
 ### Key Design Decisions
 - **No build step**: Everything runs directly (importmap for ES modules)
@@ -494,18 +511,21 @@ See [NPC-STRATEGIES.md](NPC-STRATEGIES.md) for strategy documentation.
 
 ### Running Tests
 ```bash
-cd CNDQ
-npm install  # Install Puppeteer/Playwright (first time only)
-npm test     # Runs tests/run.js → tests/test.js
+npm test                          # Full Playwright suite
+npx playwright test health        # API health checks
+npx playwright test trade         # Trade balance checks
+npx playwright test ui-smoke      # Browser smoke tests
+npx playwright test stylesheet    # Accessibility scan (no session needed)
 ```
 
 ### Test Suite Coverage
-- **Authentication Flow** - User login/session
-- **Production Run** - LP solver execution
-- **Market Offers** - Posting/responding to ads
-- **Negotiations** - Multi-round haggling
-- **Shadow Prices** - Recalculation accuracy
-- **NPC Trading** - AI player behavior
+- **health.spec.js** — Every API endpoint returns the expected shape after a clean reset
+- **trade.spec.js** — Trade balance is deterministic across buyer/seller
+- **ui-smoke.spec.js** — Player marketplace and admin panel render correctly
+- **stylesheet.spec.js** — WCAG 2.1 AA axe-core scan across dark/light/high-contrast themes; runs against `stylesheet.html` with no auth or game session required
+
+### Accessibility Testing (`stylesheet.html`)
+`stylesheet.html` is a static component gallery showing every UI component in every state. Load it directly at `http://cndq.test/CNDQ/stylesheet.html` — no login needed. The theme switcher toggles dark / light / high-contrast. `stylesheet.spec.js` runs axe-core against all three themes automatically.
 
 ### Manual Testing Checklist
 1. Start session as admin

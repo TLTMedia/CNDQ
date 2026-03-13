@@ -38,8 +38,8 @@
     --color-bg-listing-mine: #422006;
     --color-border-listing-mine: #d97706;
 
-    --color-waiting: #0891b2; /* cyan-600 - for pending buy requests */
-    --color-bg-waiting: rgba(8, 145, 178, 0.1);
+    --color-waiting: #22d3ee; /* cyan-400 — brightened for WCAG AA 4.5:1 on dark backgrounds */
+    --color-bg-waiting: rgba(34, 211, 238, 0.1);
 
     /* Scrollbar Contrast */
     --color-scrollbar-track: #0f172a; /* Slate 900 */
@@ -73,15 +73,18 @@
     --color-chemical-q: #d10a0a; /* WCAG AA compliant - 4.51:1 on #e5e7eb */
 
     --color-success: #15803d; /* Darker green for 4.5:1+ contrast on white/light gray */
-    --color-error: #dc2626;
-    --color-warning: #a16207; /* Darker yellow/orange for 4.5:1+ contrast */
+    --color-error: #b91c1c; /* darkened from #dc2626 — WCAG AA 4.5:1 on light backgrounds */
+    --color-warning: #92400e; /* amber-800 — WCAG AA 4.5:1 on light backgrounds */
     --color-info: #2563eb;
+
+    --color-waiting: #0e7490; /* cyan-700 — WCAG AA 4.5:1 on light backgrounds */
+    --color-bg-waiting: rgba(14, 116, 144, 0.1);
 
     --color-border: #d1d5db;
     --color-border-light: #e5e7eb;
 
     --color-bg-listing-mine: #fff7ed; /* Orange 50 */
-    --color-border-listing-mine: #f97316; /* Orange 500 */
+    --color-border-listing-mine: #c2410c; /* orange-700 — WCAG AA 4.5:1 on #fff7ed background */
 
     /* Scrollbar Contrast */
     --color-scrollbar-track: #f1f5f9; /* Slate 100 */
